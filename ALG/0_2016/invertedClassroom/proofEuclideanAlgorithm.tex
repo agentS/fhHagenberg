@@ -1,0 +1,106 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\section{Finding of a common divisor}
+	\begin{equation*}
+		\text{gcd}(a, b) ; a \geq b > 0
+	\end{equation*}
+	\begin{equation*}
+		a = q_{0} * b + r_{0} ; b > r_{0} \geq 0
+	\end{equation*}
+	\begin{equation*}
+		b = q_{1} * r_{0} + r_{1} ; r_{0} > r_{1} \geq 0
+	\end{equation*}
+	\begin{equation*}
+		r_{0} = q_{2} * r_{1} + r_{2} ; r_{1} > r_{2} \geq 0
+	\end{equation*}
+	\begin{center}
+		...
+	\end{center}
+	\begin{equation*}
+		r_{n - 2} = q_{n} * r_{n - 1} + r_{n}; r_{n - 1} > r_{n} \geq 0
+	\end{equation*}
+	\begin{equation*}
+		r_{n - 1} = q_{n + 1} * r_{n} + 0
+	\end{equation*}
+	
+	\begin{equation*}
+		x = \text{gcd}(a, b) = \text{gcd}(q_{0} * b + r_{0}, b)
+	\end{equation*}
+	\begin{center}
+		x is a factor of a and x is a factor of b.
+	\end{center}
+	\begin{center}
+		Thus, x is a factor of $q_{0} * b + r_{0}$
+	\end{center}
+	\begin{center}
+		Hence, x is a factor of q and b.
+	\end{center}
+	\begin{center}
+		Furthermore, x should be a factor of $r_{0}$.
+	\end{center}
+	\begin{equation*}
+		\text{gcd}(a, b) = \text{gcd}(b, r_{0})
+	\end{equation*}
+	\begin{equation*}
+		\text{gcd}(b, r_{0}) = \text{gcd}(r_{0}, r_{1})
+	\end{equation*}
+	\begin{center}
+		...
+	\end{center}
+	\begin{equation*}
+		\text{gcd}(r_{n - 1}, r_{n}) = \text{gcd}(r_{n}, 0) = r_{n}
+	\end{equation*}
+	
+	\begin{center}
+		Therefore, the final non-zero remainder $r_{n}$ divides both a and b.
+	\end{center}
+	\section{Is the found common divisor the greatest common divisor?}
+	\begin{center}Since it is a common divisor the following relationship to the greatest common divisor g must exist.
+	\end{center}
+	\begin{equation*}
+		r_{n} \leq g
+	\end{equation*}
+	\begin{center}
+		Any natural number c that divides both a and b must divide the remainders $r_{n}, r_{n - 1}, \text{...}, r_{0}$.
+	\end{center}
+	\begin{center}
+		 a and b can be written as multiples of the number c:
+	\end{center}
+	\begin{equation*}
+		a = m * c \text{and} b = n * c
+	\end{equation*}
+	\begin{equation*}
+		m \in \mathbb{Z} \text{ and } n \in \mathbb{Z}
+	\end{equation*}
+	\begin{center}
+		That's why c divides the initial remainder $r_{0}$
+	\end{center}
+	\begin{equation*}
+		r_{0} = a - q_{0} * b = m * c - q_{0} * n * c = c * (m - n * q_{0})
+	\end{equation*}
+	\begin{center}
+		Following our previous chain c must also divide $r_{1}$
+	\end{center}
+	\begin{equation*}
+		r_{1} = n * c - q_{1} * r_{0} = n * c - q_{1} * c *(m - n * q_{0}) = c * (n - q_{1} * (m - n * q_{0}))
+	\end{equation*}
+	\begin{center}
+		If we follow our chain it is shown that the common divisor c also divides all remaining remainders until $r_{n}$. Thus, the greatest common divisor g must divide $r_{n}$ implying $g \leq r_{n}$. However, as one of our previous arguments concluded that $r_{n} \leq g$ the greatest common divisor g must be equal to $r_{n}$.
+	\end{center}
+\end{document}

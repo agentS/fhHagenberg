@@ -1,0 +1,377 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\section{Kontrollfragen}
+
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item Was sind Aussagen im Sinn der Aussagenlogik?
+			\newline
+			Eine Aussage ist eine Zeichenkette, die sich mit ersten beiden in Punkt 4 definierten Regeln bilden lässt.
+			
+			\item Worin besteht der Unterschied zwischen atomaren und zusammengesetzten Aussagen?
+			\newline
+			Atomare Aussagen stellen einen Wahrheitswert dar und lassen sich nicht mehr zerlegen.
+			Zusammengesetzte Aussagen bestehen aus atomaren Aussagen, die mittels Junktoren miteinander verbunden sind.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item 3 wohlgeformte Aussagen:
+			\begin{equation*}
+				(\lnot A) \lor (B \Rightarrow C)
+			\end{equation*}
+			\begin{equation*}
+				((x \lor z) \land y) \Rightarrow (\lnot x \lor z)
+			\end{equation*}
+			\begin{equation*}
+				(\lnot(\alpha \otimes \gamma)) \lor (\beta \land \lnot\gamma)
+			\end{equation*}
+			
+			\item 3 nichtwohlgeformte Aussagen:
+			\begin{equation*}
+				\lnot A B \Rightarrow C
+			\end{equation*}
+			\begin{equation*}
+				(((x \lor z) \land y)(\lnot x \lor z))
+			\end{equation*}
+			\begin{equation*}
+				((((\lnot(\alpha \otimes \gamma)) \lor (\beta \lnot\gamma))))
+			\end{equation*}
+			
+		\end{enumerate}
+		
+		\item
+		Die Syntax legt fest, welche Regeln eine Aussage erfüllen muss, um als wohldefiniert zu gelten. Die Semantik legt fest, welche Bedeutung eine Aussage hat.
+		
+		\item
+		Um als wohlgeformt zu gelten, muss eine Aussage die folgenden Regeln erfüllen:
+		\begin{enumerate}
+			\item Die Zeichen A, B, C, ... sind atomare Aussagen
+			
+			\item Wenn $\alpha$ und $\beta$ Aussagen sind, dann sind auch folgende Zeichenketten Aussagen:
+			\begin{equation*}
+				(\lnot \alpha)
+			\end{equation*}
+			\begin{equation*}
+				(\alpha \land \beta)
+			\end{equation*}
+			\begin{equation*}
+				(\alpha \lor \beta)
+			\end{equation*}
+			\begin{equation*}
+				(\alpha \Rightarrow \beta)
+			\end{equation*}
+			
+			\item Es gibt ebensoviele öffnende wie schließende Klammern
+			\item links und rechts der Junktoren $\land$, $\lor$, $\Rightarrow$ stehte eine Aussage
+			\item Eine Aussage endet nie mit einem Junktor
+		\end{enumerate}
+		
+		\item
+		Die Semantik zusammengesetzter Aussagen kann ermittelt werden, indem mittels einer Wahrheitstabelle die Semantik der Teilaussagen (können sowohl zusammengesetzte als auch atomare Aussagen sein) bestimmt wird. Die Teilaussagen sind dabei solange rekursiv zu zerlegen bis zwei atomare Wahrheitswerte konjungiert, disjunktiert oder impliziert werden oder ein atomarer Wahrheitswert negiert wird. Danach werden die Junktoren zwischen den Teilaussagen ausgewertet.
+		
+		\item
+		Die Disjunktion ist auch wahr, wenn beide Aussagen wahr sind, während im Sprachgebrauch meistens das exklusive Oder verwendet wird, welches ausschließt, dass beide Aussagen gleichzeitig wahr sind.
+		
+		\item
+		Der Nachweis kann mittels Einsetzen in Wertetabellen erbracht werden. Richtiges Umformen bedeutet, dass die zwei verglichenen Aussagen äquivalent sind.
+		
+		\item
+		Die Verwendung von $=$ impliziert, dass die einzelnen Teilaussagen in der Wahrheitstabelle ebenfalls gleich sind und nicht nur das endgültige Resultat. $\equiv$ impliziert, dass nur das Endergebnis gleich sein muss.
+		\newline
+		Weiters sagt die Verwendung von $=$ etwas über das Ergebnis der Aussage aus, während $\equiv$ eine Meta-Aussage über die linke und die rechte Aussage darstellt.
+		
+		\item
+		L ... Peter ist gut gelaunt
+		\newline
+		M ... Mittagessen hat geschmeckt
+		
+		\begin{tabular}{|l|l|c|c|}
+			\firsthline
+			L & M & M $\Rightarrow$ L & L $\Rightarrow$ M \\
+			\hline
+			f & f & \textbf{w} & \textbf{w} \\
+			f & w & \textbf{f} & \textbf{w} \\
+			w & f & \textbf{w} & \textbf{f} \\
+			w & w & \textbf{w} & \textbf{w} \\
+			\hline
+		\end{tabular}
+		
+		Aufgrund der Wahrheitstabellen ist ersichtlich, dass eine Implikation \textbf{nicht kommutativ} ist.
+		
+		\item
+		B ... Backup hat funktioniert
+		\newline
+		D ... Kein Datenverlust
+		
+		\begin{tabular}{|l|l|c|c|}
+			\firsthline
+			B & D & $B \Rightarrow D$ & $\lnot D \Rightarrow \lnot B$ \\			
+			\hline
+				f & f & w & w \\
+				f & w & w & w \\
+				w & f & f & f \\
+				w & w & w & w \\
+			\hline
+		\end{tabular}
+		
+		Wie in der Wahrheitstabelle ersichtlich, sind die Aussagen äquivalent.
+	\end{enumerate}
+	
+	\section{Aufgaben}
+	
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\underbrace{\lnot (\underbrace{A \land (\underbrace{B \Rightarrow A}_{\text{Implikation}})}_{\text{Konjunktion}})}_{\text{Negation}}
+			\end{equation*}
+			\begin{tabular}{|l|l|c|c|c|}
+				\firsthline
+					A & B & B $\Rightarrow$ A & $A \land (B \Rightarrow A)$ & $\lnot (A \land (B \Rightarrow A))$ \\
+				\hline
+					f & f & w & f & w \\
+					f & w & f & f & w \\
+					w & f & w & w & f \\
+					w & w & w & w & f \\
+				\hline
+			\end{tabular}
+			
+			\item
+			\begin{equation*}
+				\underbrace{A \lor (\underbrace{\underbrace{\lnot B}_{\text{Negation}} \land C}_{\text{Konjunktion}})}_{\text{Disjunktion}}
+			\end{equation*}
+			\begin{tabular}{|l|l|l|c|c|c|}
+				\firsthline
+					A & B & C & $\lnot B$ & $\lnot B \lor C$ & $A \lor (\lnot B \lor C)$ \\
+				\hline
+					f & f & f & w & w & w \\
+					f & f & w & w & w & w \\
+					f & w & f & f & f & f \\
+					f & w & w & f & w & w \\
+					w & f & f & w & w & w \\
+					w & f & w & w & w & w \\
+					w & w & f & f & f & w \\
+					w & w & w & f & w & w \\
+				\hline
+			\end{tabular}
+			
+			\item
+			\begin{equation*}
+				\underbrace{(\underbrace{A \lor D}_{\text{Disjunktion}}) \land \underbrace{\lnot (\underbrace{\underbrace{\lnot B}_{\text{Negation}} \lor C}_{\text{Disjunktion}})}_{\text{Negation}}}_{\text{Konjunktion}}
+			\end{equation*}
+			\begin{tabular}{|l|l|l|l|c|c|c|c|c|}
+				\firsthline
+				A & B & C & D & $\lnot$ B & $\lnot B \lor C$ & $\lnot (\lnot B \lor C)$ & $A \lor D$ & $(A \lor D) \land \lnot (\lnot B \lor C)$ \\
+				\hline
+				f & f & f & f & w & w & f & f & f \\	
+				f & f & f & w & w & w & f & f & f \\
+				f & f & w & f & w & w & f & f & f \\
+				f & w & f & f & f & f & w & f & w \\
+				f & f & w & w & w & w & f & w & f \\
+				f & w & f & w & f & f & w & w & w \\
+				f & w & w & f & f & w & f & f & f \\
+				w & f & f & f & w & w & f & w & f \\
+				w & f & f & w & w & w & f & w & f \\
+				w & f & w & w & w & w & f & w & f \\
+				w & w & w & f & f & w & f & w & f \\
+				w & f & w & f & w & w & f & w & f \\
+				w & w & f & f & f & f & w & w & w \\
+				f & w & w & w & f & w & f & w & f \\
+				w & w & f & w & f & f & w & w & w \\
+				w & w & w & w & f & w & f & w & f \\
+				\hline
+			\end{tabular}
+		\end{enumerate}
+		
+		\item
+		\begin{equation*}
+			x = \lnot A \land B
+		\end{equation*}
+		\begin{tabular}{|l|l|c|c|}
+			\firsthline
+			A & B & $\lnot A$ & $ \lnot A \land B $ \\
+			\hline
+			f & f & w & f \\
+			f & w & w & w \\
+			w & f & f & f \\
+			w & w & f & f \\
+			\hline
+		\end{tabular}
+		\newline
+		Die Aussage kann nicht wahr sein, da wenn Karl hungrig ist, A den Wert wahr hat und durch die Negation von A das Endergebnis auf einer Konjunktion mit einer falschen Aussage beruht.
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{tabular}{|l|l|c|c|}
+				 \firsthline
+				 A & B & $B  \Rightarrow A$ & $A \land (B  \Rightarrow A)$ \\
+				 \hline
+				 f & f & w & f \\
+				 f & w & f & f \\
+				 w & f & w & w \\
+				 w & w & w & w \\
+				 \hline
+			\end{tabular}
+			
+			\item
+			\begin{tabular}{|l|l|c|c|c|}
+				\firsthline
+				A & B & $A \land B$ & $\lnot (A \land B)$ & $B \lor \lnot (A \land B)$ \\
+				\hline
+				f & f & f & w & w \\
+				f & w & f & w & w \\
+				w & f & f & w & w \\
+				w & w & w & f & w \\
+				\hline
+			\end{tabular}
+			\newline
+			Es handelt sich um eine Tautologie.
+			
+			\item
+			\begin{tabular}{|l|l|c|c|c|}
+				\firsthline
+				A & B & $\lnot$ B & $A \land \lnot B$ & $B \Rightarrow (A \land \lnot B)$ \\
+				\hline
+				f & f & w & f & w \\
+				f & w & f & f & f \\
+				w & f & w & w & w \\
+				w & w & f & f & f \\
+				\hline
+			\end{tabular}
+		\end{enumerate}
+		
+		\item
+		\begin{tabular}{|l|l|l|c|c|c|c|c|c|}
+			\firsthline
+			x & y & z & $\lnot$ y & $x \land (\lnot y)$ & $\lnot (x \land (\lnot y))$ & $x \lor z$ & $y \land (x \lor z)$ & $(\lnot (x \land (\lnot y))) \lor (y \land (x \lor z))$ \\
+			\hline
+			f & f & f & w & f & w & f & f & \textbf{w} \\
+			f & f & w & w & f & w & w & f & \textbf{w} \\
+			f & w & f & f & f & w & f & f & \textbf{w} \\
+			f & w & w & f & f & w & w & w & \textbf{w} \\
+			w & f & f & w & w & f & w & f & \textbf{f} \\
+			w & f & w & w & w & f & w & f & \textbf{f} \\
+			w & w & f & f & f & w & w & w & \textbf{w} \\
+			w & w & w & f & f & w & w & w & \textbf{w} \\
+			\hline
+		\end{tabular}
+		
+		\begin{tabular}{|l|l|c|c|}
+			\firsthline
+			x & y & $\lnot$ x & $\lnot x \lor y$ \\
+			\hline
+			f & f & w & \textbf{w} \\
+			f & w & w & \textbf{w} \\
+			w & f & f & \textbf{f} \\
+			w & w & f & \textbf{w} \\
+			\hline
+		\end{tabular}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\text{Anzahl } i = 2^{n} = 2^{2} = 4
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				i = 2^{n} = 2^{4} = 16
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				i = 2^{n}
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				a
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\lnot (x \lor y) \land (y \lor \lnot(x \lor y))
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				a
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				a
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				a
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{tabular}{|l|l|c|c|c|c|c|}
+				\firsthline
+					A & B & $\lnot B$ & $A \land (\lnot B)$ & $\lnot A$ & $B \land (\lnot A)$ & $(A \land (\lnot B)) \lor (B \land (\lnot A))$ \\
+				\hline
+					f & f & w & f & w & f & f \\
+					f & w & f & f & w & w & w \\
+					w & f & w & w & f & f & w \\
+					w & w & f & f & f & f & f \\
+				\hline
+			\end{tabular}
+			
+			\item
+			\begin{tabular}{|l|l|c|c|c|}
+				\firsthline
+				A & B & $A \Rightarrow B$ & $B \Rightarrow A$ & $(A \Rightarrow B) \land (B \Rightarrow A)$ \\
+				\hline
+				f & f & w & w & w \\
+				f & w & w & f & f \\
+				w & f & f & w & f \\
+				w & w & w & w & w \\
+				\hline
+			\end{tabular}
+		\end{enumerate}
+		
+		\item
+		\begin{tabular}{|l|l|c|}
+			\firsthline
+			x & y & $\lnot (x \otimes y)$ \\
+			\hline
+			f & f & t \\
+			f & t & f \\
+			t & f & f \\
+			t & t & t \\
+			\hline
+		\end{tabular}
+		
+		\item
+		"Wenn die Sonne scheint, ist Lukas glücklich. Wenn Lukas glücklich ist, funktioniert das Backup.". Schaut, ist die Prämisse wahr und daher ist die Konklusion ebenfalls wahr. Da die Konklusion der ersten Implikation ebenfalls als Prämisse der zweiten Implikation dient, ist deren Konklusion ebenfalls wahr. Das heißt, das Backup hat funktioniert.
+	\end{enumerate}
+\end{document}

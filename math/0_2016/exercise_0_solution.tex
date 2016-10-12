@@ -1,0 +1,186 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\begin{enumerate}
+	
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\underbrace{\underbrace{((A \lor \underbrace{(B \land C))}_{\text{Konjunktion}}}_{\text{Disjunktion}} \land \underbrace{( \lnot \underbrace{(A \Rightarrow B)))}_{\text{Implikation}}}_{\text{Negation}}}_{\text{Konjunktion}}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\underbrace{(\underbrace{(A \land B)}_{\text{Konjunktion}}\Rightarrow \underbrace{(A \lor \underbrace{(\lnot B)}_{\text{Negation}})}_{\text{Disjunktion}})}_{\text{Implikation}}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\underbrace{(\underbrace{(\underbrace{(A \Rightarrow B)}_{\text{Implikation}} \land C)}_{\text{Konjunktion}} \lor \underbrace{(\underbrace{(\lnot A)}_{\text{Negation}} \land \underbrace{(\lnot C)}_{\text{Negation}} )}_{\text{Konjunktion}})}_{\text{Disjunktion}}
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item Verwendung von zwei Operatoren, die jeweils zwei Ausdrücke erwarten mit nur einem Ausdruck.
+			\item Klammer fordert Anwendung eines Operators.
+			\item Zwei atomare Ausdrücke werden ohne Operator aneinander gereiht
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+				\begin{tabular}{|l|l|l|c|c|}
+					\firsthline
+					A & B & C & $ B \land C $ & $ A  \lor (B \land C)$ \\
+					\hline
+					f & f & f & f & f \\
+					f & f & w & f & f \\
+					f & w & f & f & f \\
+					f & w & w & w & w \\
+					w & f & f & f & w \\
+					w & f & w & f & w \\
+					w & w & f & f & w \\
+					w & w & w & w & w \\
+					\hline
+				\end{tabular}
+			\item
+			\begin{tabular}{|l|l|c|c|c|}
+				\firsthline
+				A & B & $A \land B$ & $A \lor B$ & $(A \land B) \Rightarrow (A \lor B)$ \\
+				\hline
+				f & f & f & f & w \\
+				f & w & f & w & w \\
+				w & f & f & w & w \\
+				w & w & w & w & w \\
+				\hline
+			\end{tabular}
+			
+			\item
+			\begin{tabular}{|l|l|l|c|c|c|c|}
+				\firsthline
+				A & B & C & $A \Rightarrow B$ & $(A \Rightarrow B) \land C$ & $ \lnot A$ & $((A \Rightarrow B) \land C) \lor (\lnot A)$ \\
+				\hline
+				f & f & f & w & f & w & w \\
+				f & f & w & w & w & w & w \\
+				f & w & f & w & f & w & w \\
+				f & w & w & w & w & w & w \\
+				w & f & f & f & f & f & f \\
+				w & f & w & f & f & f & f \\
+				w & w & f & w & f & f & f \\
+				w & w & w & w & w & f & w \\
+				\hline
+			\end{tabular}
+		\end{enumerate}
+			
+		\item
+		\begin{enumerate}
+			\item
+			\begin{tabular}{|l|l|l|c|c|c|c|c|c|}
+				\firsthline
+				A & B & C & $\lnot B$ & $\lnot B \land A$ & $A \lor (\lnot B \land A)$ & $B \lor A$ & $C \lor (B \lor A)$ & $(A \lor (\lnot B \land A)) \land (C \lor (B \lor A))$ \\
+				\hline
+				\textbf{f} & f & f & w & f & f & f & f & \textbf{f} \\
+				\textbf{f} & f & w & w & f & f & f & w & \textbf{f} \\
+				\textbf{f} & w & f & f & f & f & w & w & \textbf{f} \\
+				\textbf{f} & w & w & f & f & f & w & w & \textbf{f} \\
+				\textbf{w} & f & f & w & w & w & w & w & \textbf{w} \\
+				\textbf{w} & f & w & w & w & w & w & w & \textbf{w} \\
+				\textbf{w} & w & f & f & f & w & w & w & \textbf{w} \\
+				\textbf{w} & w & w & f & f & w & w & w & \textbf{w} \\
+				\hline
+			\end{tabular}
+		
+			\item
+			\begin{tabular}{|l|l|l|c|c|c|c|c|c|}
+				\firsthline
+				x & y & z & $\lnot y$ & $x \land \lnot y$ & $\lnot (x \land \lnot y)$ & $x \lor z$ & $y \land (x \lor z)$ & $\lnot (x \land \lnot y) \lor (y \land (x \lor z))$ \\
+				\hline
+					f & f & f & w & f & w & f & f & w \\
+					f & f & w & w & f & w & w & f & w \\
+					f & w & f & f & f & w & f & f & w \\
+					f & w & w & f & f & w & w & w & w \\
+					w & f & f & w & w & f & w & f & f \\
+					w & f & w & w & w & f & w & f & f \\
+					w & w & f & f & f & w & w & w & w \\
+					w & w & w & f & f & w & w & w & w \\
+				\hline			
+			\end{tabular}
+			
+			\begin{tabular}{|l|l|c|c|}
+				\firsthline
+					x & y & $\lnot x$ & $\lnot x \lor y$ \\				 
+				\hline
+					f & f & w & w \\
+					f & w & w & w \\
+					w & f & f & f \\
+					w & w & f & w \\
+				\hline
+			\end{tabular}
+			
+			\begin{tabular}{|l|l|c|}
+				\firsthline
+					x & y & $ x \Rightarrow y $ \\
+				\hline
+					f & f & w \\
+					f & w & w \\
+					w & f & f \\
+					w & w & w \\
+				\hline
+			\end{tabular}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{tabular}{|l|l|c|c|c|c|c|}
+				\firsthline
+					A & B & $\lnot B$ & $A \land (\lnot B)$ & $\lnot A$ & $B \land (\lnot A)$ & $(A \land (\lnot B)) \lor (B \land (\lnot A))$ \\
+				\hline
+					f & f & w & f & w & f & f \\
+					f & w & f & f & w & w & w \\
+					w & f & w & w & f & f & w \\
+					w & w & f & f & f & f & f \\
+				\hline
+			\end{tabular}
+			
+			\item
+			\begin{tabular}{|l|l|c|c|c|}
+				\firsthline
+				A & B & $A \Rightarrow B$ & $B \Rightarrow A$ & $(A \Rightarrow B) \land (B \Rightarrow A)$ \\
+				\hline
+				f & f & w & w & w \\
+				f & w & w & f & f \\
+				w & f & f & w & f \\
+				w & w & w & w & w \\
+				\hline
+			\end{tabular}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item Eine Wahrheitstabelle einer Aussage, die aus $n$ unterschiedlichen Aussagen zusammengesetzt ist, besteht aus $2^n$ Aussagen.
+			
+			\item
+			Die Anzahl der möglichen Junktoren kann mittels Kombinatorik gelöst werden. Die beiden atomaren Ausdrücke liefern jeweils 4 mögliche Inputs. Die Reihenfolge der Werte (von oben nach unten in der Wahrheitstabelle gelesen) des Ergebnisses spielt eine Rolle. Dabei kann ein Ausgangswert (wahr oder falsch) an unterschiedlichen Stellen stehen. Daher handelt es sich um ein Permutationsproblem mit Reihenfolge und Zurücklegen/Wiederholung. Die Anzahl der möglichen Werte der atomaren Eingabeparameter entspricht $k$ und die Anzahl der möglichen Ergenbisse in der Wertetabelle der Junktion entspricht $n$.
+			\begin{equation*}
+				\text{Anzahl an Junktoren} = n^k = 4^2 = 16
+			\end{equation*}				
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
