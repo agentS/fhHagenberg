@@ -22,7 +22,7 @@
 		\begin{enumerate}
 			\item Was sind Aussagen im Sinn der Aussagenlogik?
 			\newline
-			Eine Aussage ist eine Zeichenkette, die sich mit ersten beiden in Punkt 4 definierten Regeln bilden lässt.
+			Eine Aussage ist ein Satz, der entweder wahr oder falsch ist.
 			
 			\item Worin besteht der Unterschied zwischen atomaren und zusammengesetzten Aussagen?
 			\newline
@@ -114,7 +114,8 @@
 		\end{tabular}
 		
 		Aufgrund der Wahrheitstabellen ist ersichtlich, dass eine Implikation \textbf{nicht kommutativ} ist.
-		
+		\newline
+		Darüber hinaus wird die Implikationsumformungsregel $x \Rightarrow y \equiv \lnot y \Rightarrow \lnot x$ verletzt.
 		\item
 		B ... Backup hat funktioniert
 		\newline
@@ -132,6 +133,8 @@
 		\end{tabular}
 		
 		Wie in der Wahrheitstabelle ersichtlich, sind die Aussagen äquivalent.
+		\newline
+		Zusätzlich wird die Implikationsumformungsregel $x \Rightarrow y \equiv \lnot y \Rightarrow \lnot x$ erfüllt.
 	\end{enumerate}
 	
 	\section{Aufgaben}
@@ -308,27 +311,129 @@
 		\begin{enumerate}
 			\item
 			\begin{equation*}
-				a
+				(((x \lor \lnot y) \land (x \lor y)) \land (\lnot x \lor \lnot y)) \lor y
+			\end{equation*}
+			\begin{equation*}
+				(((x \lor \lnot y) \land (x \lor y)) \lor y) \land ((\lnot x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(((x \lor \lnot y) \lor y) \land (y \lor (x \lor y))) \land ((\lnot x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				((x \lor (\lnot y \lor y)) \land ((y \lor y) \lor x)) \land ((\lnot x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				((x \lor w) \land (y \lor x)) \land ((\lnot x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(w \land (y \lor x)) \land ((\lnot x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(y \lor x) \land ((\lnot x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				((y \lor x) \land (\lnot x \lor \lnot y)) \lor ((y \lor x) \land y)
+			\end{equation*}
+			\begin{equation*}
+				((y \lor x) \land (\lnot x \lor \lnot y)) \lor ((y \lor x) \land y)
+			\end{equation*}
+			\begin{equation*}
+				((y \lor x) \land (\lnot x \lor \lnot y)) \lor y
+			\end{equation*}
+			\begin{equation*}
+				((y \lor x) \lor y) \land (y \lor (\lnot x \lor \lnot y))
+			\end{equation*}
+			\begin{equation*}
+				(x \lor (y \lor y)) \land (\lnot x \lor (y \lor \lnot y))
+			\end{equation*}
+			\begin{equation*}
+				(x \lor y) \land (\lnot x \lor w)
+			\end{equation*}
+			\begin{equation*}
+				(x \lor y) \land w
+			\end{equation*}
+			\begin{equation*}
+				(x \lor y)
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\lnot (x \lor y) \land (y \lor \lnot(x \lor y))
+				(\lnot y \land \lnot x) \land ((y \lor \lnot x) \land (y \lor \lnot y))
+			\end{equation*}
+			\begin{equation*}
+				(\lnot y \land \lnot x) \land ((y \lor \lnot x) \land w)
+			\end{equation*}
+			\begin{equation*}
+				(\lnot y \land \lnot x) \land (y \lor \lnot x)
+			\end{equation*}
+			\begin{equation*}
+				(\lnot y) \land (\lnot x \land (y \lor \lnot x))
+			\end{equation*}
+			\begin{equation*}
+				(\lnot y) \land (\lnot x \land (y \lor \lnot x))
+			\end{equation*}
+			\begin{equation*}
+				(\lnot y) \land (\lnot x)
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				a
+				\lnot (x \lor y) \land (y \lor (\lnot x \land \lnot y))
+			\end{equation*}
+			\begin{center}
+				Siehe Beispiel b.
+			\end{center}
+			
+			\item
+			\begin{equation*}
+				(\lnot x \land \lnot y) \lor ((x \lor x) \land (x \lor y))
+			\end{equation*}
+			\begin{equation*}
+				(\lnot x \land \lnot y) \lor (x \land (x \lor y))
+			\end{equation*}
+			\begin{equation*}
+				((\lnot x \land \lnot y) \lor x) \land ((\lnot x \land \lnot y) \lor (x \lor y))
+			\end{equation*}
+			\begin{equation*}
+				((\lnot x \lor x) \land (x \lor \lnot y)) \land (((\lnot x \land \lnot y) \lor x) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(w \land (x \lor \lnot y)) \land (((\lnot x \land \lnot y) \lor x) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y) \land (((\lnot x \lor x) \land (x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y) \land ((w \land (x \lor \lnot y)) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y) \land ((x \lor \lnot y) \lor y)
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y) \land (x \lor (\lnot y \lor y))
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y) \land (x \lor w)
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y) \land w
+			\end{equation*}
+			\begin{equation*}
+				(x \lor \lnot y)
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				a
+				((x \lor \lnot x) \land (x \lor y)) \land ((x \lor x) \land (x \lor y))
 			\end{equation*}
-			
-			\item
 			\begin{equation*}
-				a
+				(w \land (x \lor y)) \land (x \land (x \lor y))
+			\end{equation*}
+			\begin{equation*}
+				(x \lor y) \land (x)
+			\end{equation*}
+			\begin{equation*}
+				x
 			\end{equation*}
 		\end{enumerate}
 		
@@ -372,6 +477,6 @@
 		\end{tabular}
 		
 		\item
-		"Wenn die Sonne scheint, ist Lukas glücklich. Wenn Lukas glücklich ist, funktioniert das Backup.". Schaut, ist die Prämisse wahr und daher ist die Konklusion ebenfalls wahr. Da die Konklusion der ersten Implikation ebenfalls als Prämisse der zweiten Implikation dient, ist deren Konklusion ebenfalls wahr. Das heißt, das Backup hat funktioniert.
+		"Wenn die Sonne scheint, ist Lukas glücklich. Wenn Lukas glücklich ist, funktioniert das Backup.". Ist im ersten Punkt die Prämisse wahr, ist die Konklusion ebenfalls wahr. Da die Konklusion der ersten Implikation ebenfalls als Prämisse der zweiten Implikation dient, ist deren Konklusion ebenfalls wahr. Das heißt, das Backup hat funktioniert.
 	\end{enumerate}
 \end{document}
