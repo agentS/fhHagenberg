@@ -100,6 +100,7 @@
 			\end{equation*}
 		\end{enumerate}
 		
+		\item
 		\begin{enumerate}
 			\item
 			\begin{equation*}
@@ -116,6 +117,7 @@
 				(\lnot A \land \lnot B \land C) \lor (\land A \land B \land C) \lor (A \land B \land \lnot C)
 			\end{equation*}
 		\end{enumerate}
+		\clearpage
 		
 		\item
 		\begin{enumerate}
@@ -131,15 +133,13 @@
 			
 			\item
 			\begin{equation*}
-				\underbrace{/(\underbrace{f(\underbrace{2}_{\text{Term}}, \underbrace{3}_{\text{Term}}, \underbrace{4}_{\text{Term}}, \underbrace{-(\underbrace{x}_{\text{Term}}, \underbrace{y}_{\text{Term}})}_{\text{Term}})}_{\text{Term}})}_{\text{Term}}
+				\underbrace{/(\underbrace{f(\underbrace{2}_{\text{Term}}, \underbrace{3}_{\text{Term}}, \underbrace{4}_{\text{Term}})}_{\text{Term}}, \underbrace{-(\underbrace{x}_{\text{Term}}, \underbrace{y}_{\text{Term}})}_{\text{Term}}))}_{\text{Term}}
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\underbrace{\leq(\underbrace{Q(\underbrace{*(\underbrace{2}_{\text{Term}}, \underbrace{4}_{\text{Term}}), \underbrace{P(\underbrace{13}_{\text{Term}}, \underbrace{x}_{\text{Term}})}_{\text{atomare Aussage}}}_{\text{Term}})}_{\text{atomare Aussage}}, \underbrace{f(\underbrace{x}_{\text{Term}}, \underbrace{2}_{\text{Term}}, \underbrace{3}_{\text{Term}})}_{\text{Term}})}_{\text{atomare Aussage}}
+				\underbrace{\leq(\underbrace{Q(\underbrace{*(\underbrace{2}_{\text{Term}}, \underbrace{4}_{\text{Term}})}_{\text{Term}}, \underbrace{P(\underbrace{13}_{\text{Term}}, \underbrace{x}_{\text{Term}})}_{\text{atomare Aussage}})}_{\text{ungültig, da Eingabe Term und a.A.}}, \underbrace{f(\underbrace{x}_{\text{Term}}, \underbrace{2}_{\text{Term}}, \underbrace{3}_{\text{Term}})}_{\text{Term}})}_{\text{ungültig, da Eingabe Term und atomare Aussage}}
 			\end{equation*}
-			\newline
-			Ist das erlaubt?
 			
 			\item
 			\begin{equation*}
@@ -148,14 +148,14 @@
 			
 			\item
 			\begin{equation*}
-				\underbrace{+(\underbrace{P(\underbrace{3}_{\text{Term}}, \underbrace{x}_{\text{Term}}, \underbrace{-(\underbrace{2}_{\text{Term}}, \underbrace{y}_{\text{Term}})}_{\text{Term}})}_{\text{atomare Aussage}})}_{\text{Term}}
+				\underbrace{+(\underbrace{P(\underbrace{3}_{\text{Term}}, \underbrace{x}_{\text{Term}})}_{\text{atomare Aussage}}, \underbrace{-(\underbrace{2}_{\text{Term}}, \underbrace{y}_{\text{Term}})}_{\text{Term}})}_{\text{ungültig, da Eingabe a.A. und Term}}
 			\end{equation*}
-			\newline
-			Ist das erlaubt?
 		\end{enumerate}
+		\clearpage
 		
 		\item
 		\begin{enumerate}
+			\item
 			\begin{equation*}
 				\begin{aligned}
 					( \underbrace{f((\underbrace{x}_{\text{V}}, ( \underbrace{x}_{\text{V}} \underbrace{*}_{\text{FK2}} \underbrace{2}_{\text{OK}} ), \underbrace{2}_{\text{OK}})}_{\text{FK3}} \underbrace{-}_{\text{FK2}} ( \underbrace{2}_{\text{OK}} \underbrace{+}_{\text{FK2}} \underbrace{x}_{\text{V}})\underbrace{\leq}_{\text{PK}} ( \underbrace{4}_{\text{OK}} \underbrace{/}_{\text{FK2}} \underbrace{x}_{\text{V}} )) \\ \Rightarrow \\ (((\underbrace{4}_{\text{OK}} \underbrace{-}_{\text{FK2}} \underbrace{x}_{\text{V}}) \underbrace{<}_{\text{PK2}} (\underbrace{5}_{\text{OK}} \underbrace{+}_{\text{FK2}} \underbrace{x}_{\text{V}})) \land \underbrace{P(\underbrace{3}_{\text{OK}}, (\underbrace{x}_{\text{V}} \underbrace{/}_{\text{FK2}} \underbrace{y}_{\text{V}}))}_{\text{PK2}})
