@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\section{Mögliche Junktoren mit n Stellen}
+	
+	\begin{center}
+		\begin{tabular}{|c|r|}
+			\firsthline
+				atomare Aussagen (Stellen) & n \\
+			\hline
+				Wahrheitswerte & w \\
+			\hline
+				mögliche Kombinationen & k \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{equation*}
+		\text{mögliche Junktoren} = n^{m^{k}}
+	\end{equation*}
+	\begin{equation*}
+		k = m^{n}
+	\end{equation*}
+	\begin{equation*}
+		\text{mögliche Junktoren} = n^{m^{m^{n}}}
+	\end{equation*}
+	
+	\section{Beweis modus ponens}
+	\begin{equation*}
+		x \Rightarrow y \equiv w \text{ , } x \equiv w 
+	\end{equation*}
+	
+	\begin{center}
+		\begin{tabular}{|l|l|c|}
+			\firsthline
+				x & y & $x \Rightarrow y$ \\
+			\hline
+				f & f & w \\
+				f & w & w \\
+				\textbf{w} & f & f \\
+				\textbf{w} & \textbf{w} & \textbf{w} \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	Zuerst werden die Zeilen betrachtet, in denen x wahr ist. Danach wird die Schnittmenge mit der Zeile, in der $x \Rightarrow y$ wahr ist gebildet. Das Ergebnis ist nur die Zeile, in der y ebenfalls wahr ist.
+	
+	\section{If-Then-Else-Junktor}
+	Gesucht ist ein Junktor, der nach dem folgenden Prinzip funktioniert: if c then x else y
+	\newline
+	Der Junktor liefert den Wahrheitswert von y zurück, wenn c falsch ist und falls c wahr ist, wird der Wahrheitswert von x geliefert.
+	
+	\begin{center}
+		\begin{tabular}{|l|l|l|c|}
+			\firsthline
+				c & x & y & ??? \\
+			\hline
+				f & f & \textbf{f} & \textbf{f} \\
+				f & f & \textbf{w} & \textbf{w} \\
+				f & w & \textbf{f} & \textbf{f} \\
+				f & w & \textbf{w} & \textbf{w} \\
+				w & \textbf{f} & f & \textbf{f} \\
+				w & \textbf{f} & w & \textbf{f} \\
+				w & \textbf{w} & f & \textbf{w} \\
+				w & \textbf{w} & w & \textbf{w} \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{equation*}
+		(\lnot c \land \lnot x \land y) \lor (\lnot c \land x \land y) \lor (c \land x \land \lnot y) \lor (c \land x \land y)
+	\end{equation*}
+	\begin{equation*}
+		\equiv (c \land x) \lor (\lnot c \land y)
+	\end{equation*}
+\end{document}
