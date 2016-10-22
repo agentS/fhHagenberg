@@ -116,6 +116,9 @@
 			\begin{equation*}
 				(\lnot A \land \lnot B \land C) \lor (\land A \land B \land C) \lor (A \land B \land \lnot C)
 			\end{equation*}
+			\begin{equation*}
+				\equiv (C \land \lnot A) \lor (A \land B \land \lnot C)
+			\end{equation*}
 		\end{enumerate}
 		\clearpage
 		
@@ -158,7 +161,7 @@
 			\item
 			\begin{equation*}
 				\begin{aligned}
-					( \underbrace{f((\underbrace{x}_{\text{V}}, ( \underbrace{x}_{\text{V}} \underbrace{*}_{\text{FK2}} \underbrace{2}_{\text{OK}} ), \underbrace{2}_{\text{OK}})}_{\text{FK3}} \underbrace{-}_{\text{FK2}} ( \underbrace{2}_{\text{OK}} \underbrace{+}_{\text{FK2}} \underbrace{x}_{\text{V}})\underbrace{\leq}_{\text{PK}} ( \underbrace{4}_{\text{OK}} \underbrace{/}_{\text{FK2}} \underbrace{x}_{\text{V}} )) \\ \Rightarrow \\ (((\underbrace{4}_{\text{OK}} \underbrace{-}_{\text{FK2}} \underbrace{x}_{\text{V}}) \underbrace{<}_{\text{PK2}} (\underbrace{5}_{\text{OK}} \underbrace{+}_{\text{FK2}} \underbrace{x}_{\text{V}})) \land \underbrace{P(\underbrace{3}_{\text{OK}}, (\underbrace{x}_{\text{V}} \underbrace{/}_{\text{FK2}} \underbrace{y}_{\text{V}}))}_{\text{PK2}})
+					(( \underbrace{f(\underbrace{x}_{\text{V}}, ( \underbrace{x}_{\text{V}} \underbrace{*}_{\text{FK2}} \underbrace{2}_{\text{OK}} ), \underbrace{2}_{\text{OK}})}_{\text{FK3}} \underbrace{-}_{\text{FK2}} ( \underbrace{2}_{\text{OK}} \underbrace{+}_{\text{FK2}} \underbrace{x}_{\text{V}})\underbrace{\leq}_{\text{PK}} ( \underbrace{4}_{\text{OK}} \underbrace{/}_{\text{FK2}} \underbrace{x}_{\text{V}} )) \\ \Rightarrow \\ (((\underbrace{4}_{\text{OK}} \underbrace{-}_{\text{FK2}} \underbrace{x}_{\text{V}}) \underbrace{<}_{\text{PK2}} (\underbrace{5}_{\text{OK}} \underbrace{+}_{\text{FK2}} \underbrace{x}_{\text{V}})) \land \underbrace{P(\underbrace{3}_{\text{OK}}, (\underbrace{x}_{\text{V}} \underbrace{/}_{\text{FK2}} \underbrace{y}_{\text{V}}))}_{\text{PK2}})
 				\end{aligned}
 			\end{equation*}
 			\begin{figure}[ht!]
@@ -167,7 +170,11 @@
 					\caption{Syntaxbaum für Aufgabe 5)a)}
 				\end{center}
 			\end{figure}
-		
+			\newline
+			\begin{center}
+				Anzahl der Kanten/Äste gibt die Stelligkeit der FK/PK an
+			\end{center}
+			
 			\item
 			\begin{equation*}
 				\begin{aligned}

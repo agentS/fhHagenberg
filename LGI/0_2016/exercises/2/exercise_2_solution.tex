@@ -1,0 +1,172 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			Es gibt mindestens ein Element für x und mindestens ein Element für y für die gilt, dass x addiert mit y 0 ergibt.
+			\newline
+			Die Aussage ist wahr, da für y durch den Wert $-x$ substituiert werden kann und somit das Ergebnis immer 0 ist.
+			\begin{equation*}
+				x + (-x) = 0
+			\end{equation*}
+			\begin{equation*}
+				\equiv x - x = 0
+			\end{equation*}
+			Man kann z.B. 2 in die obere Aussage einsetzen:
+			\begin{equation*}
+				2 - 2 = 0
+			\end{equation*}
+			
+			\item
+			Für alle x gilt, dass es mindestens ein y gibt, für das gilt, dass die Addition von x mit y 0 ergibt.
+			\newline
+			Diese Aussage ist ebenfalls wahr, da y für jedes x genau den Wert dieses x annehmen kann und die Aussage durch Substitution von y durch (-x) wieder 0 ergibt.
+			
+			\begin{equation*}
+				x + (-x) = 0
+			\end{equation*}
+			\begin{equation*}
+				\equiv x - x = 0
+			\end{equation*}
+			Man kann z.B. 5 in die obere Aussage einsetzen:
+			\begin{equation*}
+				5 - 5 = 0
+			\end{equation*}
+			
+			\item
+			Es gibt mindestens ein Element für x und beliebig viele Elemente für y, für die gilt, dass deren Addition den Wert 0 ergibt.
+			\newline
+			Diese Aussage ist ebenfalls wahr, da analog zu den vorherigen Beispielen x durch -y substituiert wird und das x in der Aussage genau den Wert jedes y annehmen kann.
+			
+			\begin{equation*}
+				(-y) + y = 0
+			\end{equation*}
+			\begin{equation*}
+				\equiv y - y = 0
+			\end{equation*}
+			Man kann z.B. 1180 in die obere Aussage einsetzen:
+			\begin{equation*}
+				1180 - 1180 = 0
+			\end{equation*}
+			
+			\item
+			Für jede Variablenbelegung von x gibt es beliebig viele Werte, die y annehmen kann, deren Addition den Wert 0 ergibt.
+			\newline
+			Diese Aussage ist falsch, da sowohl x und y beliebige Werte annehmen können und x jetzt nicht mehr durch den äquivalenten negierten Wert ersetzt werden kann und umgekehrt.
+			\newline
+			So ist beispielsweise die Aussage $42 - 42 = 0$ für $x = 42$ und $y = 42$ wahr, jedoch nicht mehr für $x = 42$ und $y = 1180$: $42 - 1180 \neq 0$.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\forall x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \Rightarrow \text{istBruder}(x, y)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall x \text{ istStudentin}(x) \land \text{wohnort}(x, \text{'Hagenberg'}) \Rightarrow \text{interesse}(x, \text{'Informatik'})
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall x \text{ istMensch}(x) \land \exists y \text{ istMensch}(y) \Rightarrow \text{istVater}(y, x)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall x \text{ istMensch}(x) \land \exists y \forall z \land y \neq z \land \text{ istMensch}(y) \land \text{ istMensch}(z) \Rightarrow \text{istVater}(y, x) \land (\lnot \text{ istVater(z, x)})
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\begin{aligned}
+					\exists x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \land \text{ studiert}(x, \text{ 'MBI'}) \land \text{ studiert}(y, \text{ 'MBI'}) \\ \land \\ \text{interesse}(x, \text{'Mathematik'}) \land \text{interesse}(y, \text{'Mathematik'})
+				\end{aligned}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\exists x, \forall y \text{ is}\mathbb{N}(x) \land \text{ is}\mathbb{N}(y) \land \lnot(x > y)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall y \exists x \text{ istMensch}(x) \land \text{ istName}(\text{'Klaus'}, x) \land \text{ istFilm}(y) \land \text{ gefällt}(y, x) \Rightarrow \text{Kinobesuch}(x)
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			Diese Aussage impliziert, dass alle Katzen graue Katzen sind.
+			
+			\item
+			Die PK '=' erhält auf ihrer linken Seite einen Wahrheitswert, nämlich das Ergebnis von 'istKatze', als Eingabeparameter.
+			
+			\item
+			Es ist nicht möglich, dass die PK '=' die Wahrheitswerte der PK 'istKatze' und 'istGrau' als Eingabeparameter erhält.
+			
+			\item
+			Es ist nicht möglich, dass die Prädikatkonstante 'istKatze' den Wahrheitswert der PK 'istGrau' als Eingabeparameter erhält.
+			
+			\item
+			Es ist nicht möglich, dass die PK 'istKatze' den Wahrheitswert der PK '=' als Eingabeparameter erhält.
+			
+			\item
+			Diese Aussage ist aufgrund der Implikation ebenfalls wahr, wenn ein beliebiger Gegenstand, der keine Katze ist, grau ist.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			Für alle Felder p, auf denen sich ein Loch befindet, gibt es mehrere benachbarte Felder q, auf denen ein Luftzug spürbar ist.
+			
+			\item
+			Es gibt ein Feld p, auf dem Gold liegt, ein Feld q, auf dem sich ein Loch befindet und das neben p liegt, sowie ein Feld r, das ebenfalls neben p liegt und auf dem sich der Wumpus befindet. Wumpus und Loch können sich nicht auf dem selben Feld befinden.
+			
+			\item
+			Auf allen Löcher, auf denen sich sowohl der Spieler als auch Wumpus befinden, stirbt der Spieler.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\forall x \exists y \text{ hatLuftZug}(x) \land \text{ sindNachbarn}(x, y) \Rightarrow \text{hatLoch}(y)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\exists x \land \text{ hatLuftZug}(x) \land \text{ hatGestank}(x)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\exists x, y, z \text{ hatLuftZug}(x) \land y \neq z \land \text{ sindNachbarn}(x, y) \land \text{ sindNachbarn}(x, z) \land \text{hatLoch}(y) \land \text{hatLoch}(z)
+			\end{equation*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
