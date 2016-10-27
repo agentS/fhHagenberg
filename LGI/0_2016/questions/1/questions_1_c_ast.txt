@@ -1,0 +1,6 @@
+http://mshang.ca/syntree/
+
+a) [Konjunktion [Q [x] [+ [3] [y]]][< [3] [x]]]
+b) [+ [f [+ [x] [2]] [* [3] [y]]] [* [3] [g [x] [+ [2] [y]]]]]
+c) [Implikation [P [* [x(gebunden)] [3]]] [Allquantor [x(gebunden)] [Konjunktion [Q [x(frei)] [3]] [P [y]]]]]
+d) [Existenqunator [y(gebunden)] [< [+ [f [x(frei)] [3]] y(frei)] [* [g [3] [y]] [27]]]]

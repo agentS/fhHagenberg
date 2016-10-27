@@ -106,14 +106,40 @@
 				gültige atomare Aussage
 			\end{center}
 			
-			\item d
-			\item e
+			\item
+			\begin{equation*}
+				\underbrace{\underbrace{P(\underbrace{x}_{\text{V}})}_{\text{PK1}} + \underbrace{Q(\underbrace{2}_{\text{OK}}, \underbrace{y}_{\text{V}})}_{\text{PK2}}}_{\text{FK2}}
+			\end{equation*}
+			\begin{center}
+				Keine gültige atomare Aussage, da die FK + zwei Wahrheitswerte als Eingabeparameter erhält.
+			\end{center}
+			
+			\item
+			\begin{equation*}
+				\underbrace{R(\underbrace{2}_{\text{OK}}, \underbrace{\underbrace{3}_{\text{OK}} + \underbrace{x}_{\text{V}}}_{\text{FK2}}, \underbrace{\underbrace{5}_{\text{OK}} \cdot \underbrace{y}_{\text{V}}}_{\text{FK2}})}_{\text{PK3}}
+			\end{equation*}
+			\begin{center}
+				gültige atomare Aussage
+			\end{center}
 		\end{enumerate}
 		
 		\item
 		\begin{enumerate}
-			\item a
-			\item b
+			\item
+			\begin{equation*}
+				\underbrace{\underbrace{P(\underbrace{y}_{\text{V}})}_{\text{PK1}} < \underbrace{\underbrace{3}_{\text{OK}} + \underbrace{x}_{\text{V}}}_{\text{FK2}}}_{\text{PK2}}
+			\end{equation*}
+			\begin{center}
+				Ungültige Aussage, da die PK > einen Term und einen Wahrheitswert als Eingabeparameter erhält.
+			\end{center}
+			
+			\item
+			\begin{equation*}
+				\underbrace{\underbrace{f(\underbrace{x}_{\text{V}}, \underbrace{3}_{\text{OK}})}_{\text{FK2}} + \underbrace{g(\underbrace{f(\underbrace{x}_{\text{V}}, \underbrace{2}_{\text{OK}})}_{\text{FK2}}, \underbrace{4}_{\text{OK}})}_{\text{FK2}}}_{\text{FK2}}
+			\end{equation*}
+			\begin{center}
+				Resultat ist ein gültiger Term.
+			\end{center}
 						
 			\item
 			\begin{equation*}
@@ -132,7 +158,50 @@
 				Ungültige Aussage, da die zweistellige Funktionskonstante nur einen Parameter erhält.
 			\end{center}
 			
-			\item e
+			\item
+			\begin{equation*}
+				\underbrace{\underbrace{f(\underbrace{\underbrace{x}_{\text{V}} \cdot \underbrace{y}_{\text{V}}}_{\text{FK2}}, \underbrace{\underbrace{2}_{\text{OK}} \cdot \underbrace{y}_{\text{V}}}_{\text{FK2}})}_{\text{FK2}} < \underbrace{Q(\underbrace{2}_{\text{OK}}, \underbrace{y}_{\text{V}})}_{\text{PK2}}}_{\text{PK2}}
+			\end{equation*}
+			\begin{center}
+				Ungültige Aussage, da die PK < einen Term und einen Wahrheitswert als Eingabeparameter erhält.
+			\end{center}
+		\end{enumerate}
+		\clearpage
+		
+		\item
+		\begin{enumerate}
+			\item keine Quantoren vorhanden
+			\begin{figure}[ht!]
+				\begin{center}
+					\includegraphics[height=45mm]{2a.png}
+					\caption{Syntaxbaum für Aufgabe 3)a)}
+				\end{center}
+			\end{figure}
+			
+			\item keine Quantoren vorhanden
+			\begin{figure}[ht!]
+				\begin{center}
+					\includegraphics[height=45mm]{2b.png}
+					\caption{Syntaxbaum für Aufgabe 3)b)}
+				\end{center}
+			\end{figure}
+			
+			\item Ask for assistance!
+			\begin{figure}[ht!]
+				\begin{center}
+					\includegraphics[height=45mm]{2c.png}
+					\caption{Syntaxbaum für Aufgabe 3)c)}
+				\end{center}
+			\end{figure}
+			\clearpage			
+			
+			\item ein Existenzquantor vorhanden
+			\begin{figure}[ht!]
+				\begin{center}
+					\includegraphics[height=45mm]{2d.png}
+					\caption{Syntaxbaum für Aufgabe 3)d)}
+				\end{center}
+			\end{figure}
 		\end{enumerate}
 	\end{enumerate}
 \end{document}
