@@ -14,32 +14,332 @@
 \usepackage{array}
 \usepackage{mathtools}
 \usepackage{amssymb}
-\cfoot{\textcopyright Lukas Sch�rghuber, S1610307103}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
 
 \begin{document}
+	\section{Kontrollfragen}
 	\begin{enumerate}
 		\item
-		Die Reihenfolge der Quantoren ist wichtig f�r die Reihenfolge der Bindung der Variablen.
-		Folgt z.B. auf einen Existenzquantor ein Allquantor, so ist der vom Existenzquantor gebundene Wert f�r jeden Wert, den die durch den Allquantor gebundene Variable annehmen kann, fix.
+		Die Reihenfolge der Quantoren ist wichtig für die Reihenfolge der Bindung der Variablen.
+		Folgt z.B. auf einen Existenzquantor ein Allquantor, so ist der vom Existenzquantor gebundene Wert für jeden Wert, den die durch den Allquantor gebundene Variable annehmen kann, fix.
 		Werden die Quantoren in umgekehrter Reihenfolge geschrieben, kann die durch den Existenzquantor gebundene Variable jeden passenden Wert zu der vom Allquantor gebundenen Variable annehmen.
 		
 		\item
-		Es ist wichtig, x auf einen beliebigen Wert zu setzen, da der Allquantor genau das fordert. Kann man die Aussage f�r einen beliebigen Wert beweisen, kann jeden Wert f�r den beliebigen Wert verwenden.
-		Dar�ber hinaus ist es wichtig x auf einen fixen Wert zu setzen, da ansonsten die Aussage so modifiziert werden kann, damit sie nach Belieben wahr oder falsch ist.
+		Es ist wichtig, x auf einen beliebigen Wert zu setzen, da der Allquantor genau das fordert. Kann man die Aussage für einen beliebigen Wert beweisen, kann jeden Wert für den beliebigen Wert verwenden.
+		Darüber hinaus ist es wichtig x auf einen fixen Wert zu setzen, da ansonsten die Aussage so modifiziert werden kann, damit sie nach Belieben wahr oder falsch ist.
 		
 		\item
 		???
 		
 		\item
 		Eine Problemspezifikation ist eine mathematische Beschreibung der Abstraktion eines Problems.
-		Sie gibt an in welchem Zusammenhang gegebene und gesuchte Gr��en stehen m�ssen, um die L�sung des Problems darzustellen.
+		Sie gibt an in welchem Zusammenhang gegebene und gesuchte Größen stehen müssen, um die Lösung des Problems darzustellen.
 		Sie besteht aus den folgenden Teilen:
 		\begin{itemize}
-			\item Gegebene Gr��en
-			\item Gesuchte Gr��en
-			\item Typisierung der gegebenen und gesuchten Gr��en
-			\item Zusammenhang zwischen den gegebenen und gesuchten Gr��en
-			\item Eindeutige Definition der erlaubten Funktions- und Pr�dikatskonstanten
+			\item Gegebene Größen
+			\item Gesuchte Größen
+			\item Typisierung der gegebenen und gesuchten Größen
+			\item Zusammenhang zwischen den gegebenen und gesuchten Größen
+			\item Eindeutige Definition der erlaubten Funktions- und Prädikatskonstanten
 		\end{itemize}
+		
+		\item
+		Da sie es ermöglichen, aus der Aufgabenstellung des Kunden ein Modell zu erzeugen, in welchem dann der gewünschte Algorithmus (ersetzt Kalkül) implementiert wird. Diese Vorgehensweise entspricht dem grundlegenden Prinzip der objektorientierten Programmierung.
+		
+		\item
+		Da es anderenfalls freie Variablen in der neu definierten Prädikatskonstante gibt und somit deren Wahrheitswert nicht ermittelt werden kann.
+		
+		\item
+		Da die Konjunktion bei einem falschen Wert auf der linken Seite ein falsches Ergebnis liefert, während die Implikation ein wahres Ergebnis liefert. Somit wäre bei Verwendung einer Konjunktion die Aussage falsch, wenn die linke Seite falsch ist, was bei allen Objekten des Universums, die nicht in die "Alle"-Bedingung fallen, der Fall ist.
+		
+		\item
+		$P_[x]$ legt fest, welche Variablen durch den Allquantor gebunden werden und daher muss die Variable frei und nicht gebunden vorkommen.
+		
+		\item
+		Man nimmt das Komplement (Gegenteil) von dem an, was man beweisen möchte und überprüft, ob dieses Komplement zu einem Widerspruch führt. Falls dies der Fall ist, ist die ursprüngliche Aussage wahr, da deren Komplement falsch ist.
+		\begin{equation*}
+			\lnot A \equiv f \rightarrow A \equiv w
+		\end{equation*}
+		\newline
+		???
+		
+		\item
+		???
+		
+		\item
+		???
+	\end{enumerate}
+
+	\section{Übungen}
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			Für mindestens 1 Element x gibt es mindestens 1 Element y, dessen Addition mit x 0 ergibt.
+			\newline
+			Diese Aussage ist wahr, da y durch (-x) substituiert werden kann und die Addition einer Zahl mit deren Komplement immer 0 ergibt.
+			\begin{equation*}
+				x + (-x) = 0
+			\end{equation*}
+			\begin{equation*}
+				x - x = 0
+			\end{equation*}
+			\newline
+			Man kann z.B. 42 für x einsetzen:
+			\begin{equation*}
+				42 - 42 = 0
+			\end{equation*}
+			
+			\item
+			Für alle Elemente x gibt es mindestens ein Element y, dessen Addition mit x den Wert 0 ergibt.
+			\newline
+			Diese Aussage ist falsch, da y bevor x gebunden wird und somit y bereits für jeden möglichen x-Wert gebunden und somit unveränderlich ist.
+			\newline
+			Wird beispielsweise x auf den Wert -5 und y auf den Wert 5 gesetzt, ergibt deren Addition 0.
+			\begin{equation*}
+				-5 + 5 = 0
+			\end{equation*}
+			Wird nun der Wert von x auf 1180 verändert, kann sich der Wert von y nicht ändern, da es ja bereits gebunden ist und somit ergibt die Addition nicht mehr 0.
+			\begin{equation*}
+				1180 + 5 = 1185 \neq 0
+			\end{equation*}
+			
+			\item
+			Es gibt mindestens ein Element x, dessen Addition mit beliebigen Werten für y 0 ergibt. Diese Aussage ist wahr, da x in der Aussage des Allquantors y noch frei ist und erst durch den Existenzquantor gebunden wird und somit den negativen Wert jedes Wertes y annehmen kann. Somit gilt:
+			\begin{equation*}
+				(-y) + y = 0
+			\end{equation*}
+			
+			\item
+			Es gibt für alle Werte x beliebig viele Werte y, deren Addition mit x den Wert 0 ergibt. Diese Aussage ist falsch, da es nicht beliebig viele x-Werte gibt, deren Addition mit einem beliebigen, aber fixen y Wert 0 ergibt.
+			\newline
+			So ist z.B. die folgende Aussage wahr:
+			\begin{equation*}
+				-5 + 5 = 0
+			\end{equation*}
+			Wird nun der Wert von x verändert, während der Wert von y fix ist, ist die Behauptung widerlegt:
+			\begin{equation*}
+				-6 + 5 = -1 \neq 0
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			Es gibt mindestens einen Wert x, der jeden Wert y ohne Rest teilt.
+			\newline
+			Diese Aussage ist wahr, da jede ganze Zahl durch 1 und durch sich selbst geteilt wird und x diese Werte annehmen kann.
+			
+			\begin{equation*}
+				x | y \leftarrow x = 1
+			\end{equation*}
+			\begin{equation*}
+				1 | y \equiv w
+			\end{equation*}
+			\begin{equation*}
+				x | y \leftarrow x = y
+			\end{equation*}
+			\begin{equation*}
+				y | y \equiv w
+			\end{equation*}
+			
+			\item
+			Für alle x gibt es mindestens ein y, welches von allen x ohne Rest geteilt wird.
+			\newline
+			Diese Aussage ist falsch, da y vor x gebunden wird und somit für jeden beliebigen Wert von x den selben Wert annehmen muss und nur die Zahl 0 von allen Zahlen ohne Rest geteilt wird. Allerdings kann y aufgrund der Beschränkung des Universums auf die ganzen Zahlen nicht den Wert 0 annehmen.
+			
+			\item
+			Es gibt mindestens ein x gibt es eine beliebige Menge von y, die x ohne Rest teilen.
+			\newline
+			
+			
+			\item
+			Für alle Werte x gibt es mindestens ein Element y, dass von den x ohne Rest geteilt wird.
+			\newline
+			Diese Aussage ist wahr, da y den Wert von 1 annehmen kann und jede Zahl durch 1 ohne Rest geteilt wird.
+			\begin{equation*}
+				y | x \leftarrow y = 1
+			\end{equation*}
+			\begin{equation*}
+				1 | x \equiv w
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\exists x, y \text{ istKatze}(x) \land \text{ istKatze}(y) \land x \neq y \land \text{ geschwister}(x, y)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall x \text{ istFrau}(x) \land \text{ studiert}(x, \text{'Informatik'}) \Rightarrow \text{ interessiertIn(x, \text{'Informatik'})}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall x \text{ istMensch}(x) \exists y \text{ istMensch}(y) \Rightarrow \text{ istVater}(y, x)
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\forall x \text{ istMensch(x)} \exists y \text{ istMensch(y)} \forall z \text{ istMensch(z)} \land y \neq z \Rightarrow (\lnot \text{ istMutter(z, x)})
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\begin{aligned}
+					\exists x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \land x \neq y \land \text{ studiert}(x, \text{'Biologie'}) \land \text{ studiert}(y, \text{'Biologie'}) \\ \land \text{ interessiertIn}(x, \text{'Mathematik'}) \land \text{ interessiertIn}(y, \text{'Mathematik'})
+				\end{aligned}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\lnot (\exists x \forall y \text{ ist}\mathbb{N}(y) \land \text{ ist}\mathbb{N}(x) \land x > y)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall y \exists x \text{ istMensch}(x) \land \text{ istName}(x, \text{'Klaus'}) \land \text{ istFilm}(y) \land \text{ Kinobesuch}(x, y) \Rightarrow \text{gefällt}(y, x)
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item "Alle Sonnenaufgänge sind nicht grün."
+			\item "Jedes Glas ist nicht kratzfest."
+			\item "Alle Flüssigkeiten sind nass."
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item "Es gibt keine nicht lustigen Tiroler."
+			\item "Es gibt keine nicht weißen Schwäne."
+			\item "Es gibt interessante Vorlesungen."
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item Vergleich von zwei Objektkonstanten, die niemals den selben Wert haben werden. Darüber hinaus wird geprüft, ob alle Katzen grau sind.
+			\item Die PK = erhält als Eingabeparameter einen Wahrheitswert (Ergebnis der PK "istKatze") und einen Term (Objektkonstante "grau").
+			\item Die PK = erhält zwei Wahrheitswerte als Eingabeparameter.
+			\item Die PK "istKatze" erhält einen Wahrheitswert (das Ergebnis von "istGrau(x)") als Parameter.
+			\item Die PK "istKatze" erhält einen Wahrheitswert (Ergebnis der PK "=") als Parameter.
+			\item Diese Aussage ist für alle grauen Objekte, also auch für Nicht-Katzen, wahr.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item Die FK "=" erhält zwei Wahrheitswerte (die Ergebnisse der PK "prim") als Parameter.
+			\item Die PK "prim" erhält einen Wahrheitswert als Parameter.
+			\item Die PK "=" erhält einen Wahrheitswert (Ergebnis der PK "prim") als Parameter.
+			\item Diese Aussage ist nicht gültig, wenn der Wert von x und y vertauscht wird. Der Absolutbetrag der Differenz muss 2 ergeben.
+		\end{enumerate}
+		
+		\item
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\firsthline
+					x & y & z & gerade(x) & y + z = x \\
+				\hline
+					8 & 5 & 3 & w & $ 5 + 3 = 8 \rightarrow w $ \\
+				\hline
+					22 & 5 & 17 & w & $5 + 17 = 22 \rightarrow w$ \\
+				\hline
+					42 & 5 & 37 & w & $5 + 37 = 42 \rightarrow w$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+			
+		\item
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\firsthline
+					x & p & $2^{p} - 1$ & $x = 2^{p} - 1$ \\
+				\hline
+					7 & 3 & 7 & w \\
+				\hline
+					31 & 5 & 31 & w \\
+				\hline
+					127 & 7 & 127 & w \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\text{istQuadratZahl}(x) :\Leftrightarrow \exists y \text{ } x = y^{2}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				P(x) :\Leftrightarrow \exists y, z \text{ } x = y^{2} + z^{2}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\text{perfekt}(n) :\Leftrightarrow \displaystyle\sum_{i = 1 \land i | x}^{n - 1} i			
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				P(x, y) :\Leftrightarrow x^{2} + y^{2} > 10
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\text{primZahlenPaar}(x, y) :\Leftrightarrow \text{isPrime}(x) \land \text{ isPrime}(y) \land |x - y| = 2
+			\end{equation*}
+			\newline
+			Is this correct??? See 8)d)
+		\end{enumerate}
+		
+		\item
+		\textbf{Gegeben:}
+		\begin{equation*}
+			n \in \mathbb{N} \land \lnot(\text{isPrime}(n)) 
+		\end{equation*}
+		\textbf{Gesucht: } x und y, sodass
+		\begin{equation*}
+			x, y \in \mathbb{N} \land y > x \text{ } \land \text{ } y|n \land \text{ } x|n		
+		\end{equation*}
+		\begin{itemize}
+			\item isPrime ist eine einstellige PK, die ermittelt, ob eine Zahl eine Primzahl ist.
+			\item | ist eine zweistellige FK, die angibt, dass der Term auf der linken Seite den Term auf der rechten ohne Rest teilt.
+		\end{itemize}
+		
+		\item
+		\textbf{Gegeben:}
+		\begin{equation*}
+			p \in \mathbb{N} \land \text{ isPrime(p)}
+		\end{equation*}
+		\textbf{Gesucht: } q, wobei
+		\begin{equation*}
+			q \in \mathbb{N} \land \text{ isPrime(q)} \land \text{ } q > p \land \forall r \text{ in } \mathbb{N} \land \text{isPrime}(r) \land r > q
+		\end{equation*}
+		\begin{itemize}
+			\item isPrime ist eine einstellige PK, die ermittelt, ob eine Zahl eine Primzahl ist.
+		\end{itemize}
+		
+		\item
+		\textbf{Gegeben:}
+		\begin{equation*}
+			S \in \mathbb{N}, N \in \mathbb{N}
+		\end{equation*}
+		\textbf{Gesucht: } x, sodass
+		\begin{equation*}
+			\begin{aligned}
+				x \in \mathbb{N} \text{ } x < S \text{ } \land \text{ } x \geq N \text{ } \exists y, z \in \mathbb{N} \text{ } y \neq z \land x = y^{2} + z^{2} \\ \land \text{ } \lnot (\exists a, b, c \in \mathbb{N} \land b \neq c \land a = b^{2} + c^{2} \land a < S \land a \geq N \land a < x)
+			\end{aligned}
+		\end{equation*}
 	\end{enumerate}
 \end{document}

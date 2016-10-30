@@ -38,17 +38,18 @@
 			\item
 			Für alle x gilt, dass es mindestens ein y gibt, für das gilt, dass die Addition von x mit y 0 ergibt.
 			\newline
-			Diese Aussage ist ebenfalls wahr, da y für jedes x genau den Wert dieses x annehmen kann und die Aussage durch Substitution von y durch (-x) wieder 0 ergibt.
+			Diese Aussage ist falsch, da y erst nach x quantisiert wird und somit ein y bereits fix ist, während der Wert von x noch beliebig sein kann und somit ein y addiert mit allen möglichen Belegungen für x 0 ergeben muss.
 			
 			\begin{equation*}
-				x + (-x) = 0
+				x + y = 0
 			\end{equation*}
-			\begin{equation*}
-				\equiv x - x = 0
-			\end{equation*}
-			Man kann z.B. 5 in die obere Aussage einsetzen:
+			Man kann z.B. 5 für x und -5 für y in die obere Aussage einsetzen:
 			\begin{equation*}
 				5 - 5 = 0
+			\end{equation*}
+			Setzt man nun den Wert 10 für x ein und verändert y nicht, was ja durch die Bindung vorausgesetzt wird, ist das Ergebnis nicht mehr 0:
+			\begin{equation*}
+				10 - 5 = 5 \neq 0
 			\end{equation*}
 			
 			\item
@@ -79,22 +80,22 @@
 		\begin{enumerate}
 			\item
 			\begin{equation*}
-				\forall x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \Rightarrow \text{istBruder}(x, y)
+				\exists x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \land \text{istBruder}(x, y)
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\forall x \text{ istStudentin}(x) \land \text{wohnort}(x, \text{'Hagenberg'}) \Rightarrow \text{interesse}(x, \text{'Informatik'})
+				\forall x \text{ istStudentin}(x) \land \text{studienort}(x, \text{'Hagenberg'}) \Rightarrow \text{interesse}(x, \text{'Informatik'})
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\forall x \text{ istMensch}(x) \land \exists y \text{ istMensch}(y) \Rightarrow \text{istVater}(y, x)
+				\forall x \text{ (istMensch}(x) \land \exists y \text{ istMensch}(y)) \Rightarrow \text{istVater}(y, x)
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\forall x \text{ istMensch}(x) \land \exists y \forall z \land y \neq z \land \text{ istMensch}(y) \land \text{ istMensch}(z) \Rightarrow \text{istVater}(y, x) \land (\lnot \text{ istVater(z, x)})
+				\forall x \text{ istMensch}(x) \land \exists y \forall z \land y \neq z \land \text{ istMensch}(y) \land \text{ istMensch}(z) \Rightarrow \lnot \text{ istVater(z, x)}
 			\end{equation*}
 		\end{enumerate}
 		
@@ -103,18 +104,18 @@
 			\item
 			\begin{equation*}
 				\begin{aligned}
-					\exists x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \land \text{ studiert}(x, \text{ 'MBI'}) \land \text{ studiert}(y, \text{ 'MBI'}) \\ \land \\ \text{interesse}(x, \text{'Mathematik'}) \land \text{interesse}(y, \text{'Mathematik'})
+					\exists x, y \text{ istMensch}(x) \land \text{ istMensch}(y) \land \text{ studiert}(x, \text{ 'MBI'}) \land \text{ studiert}(y, \text{ 'MBI'}) \\ \land \\ (x \neq y) \land \text{interesse}(x, \text{'Mathematik'}) \land \text{interesse}(y, \text{'Mathematik'})
 				\end{aligned}
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\exists x, \forall y \text{ is}\mathbb{N}(x) \land \text{ is}\mathbb{N}(y) \land \lnot(x > y)
+				\lnot (\exists x, \forall y \text{ is}\mathbb{N}(x) \land \text{ is}\mathbb{N}(y) \land x > y)
 			\end{equation*}
 			
 			\item
 			\begin{equation*}
-				\forall y \exists x \text{ istMensch}(x) \land \text{ istName}(\text{'Klaus'}, x) \land \text{ istFilm}(y) \land \text{ gefällt}(y, x) \Rightarrow \text{Kinobesuch}(x)
+				\forall y \exists x \text{ istMensch}(x) \land \text{ istName}(\text{'Klaus'}, x) \land \text{ istFilm}(y) \land \text{ Kinobesuch}(x) \Rightarrow \text{gefällt}(y, x)
 			\end{equation*}
 		\end{enumerate}
 		
@@ -142,7 +143,7 @@
 		\item
 		\begin{enumerate}
 			\item
-			Für alle Felder p, auf denen sich ein Loch befindet, gibt es mehrere benachbarte Felder q, auf denen ein Luftzug spürbar ist.
+			Auf allen Felder q, welche benachbart zu den den Feldern p, auf denen sich ein Loch befindet, sind, ist ein Luftzug spürbar.
 			
 			\item
 			Es gibt ein Feld p, auf dem Gold liegt, ein Feld q, auf dem sich ein Loch befindet und das neben p liegt, sowie ein Feld r, das ebenfalls neben p liegt und auf dem sich der Wumpus befindet. Wumpus und Loch können sich nicht auf dem selben Feld befinden.
@@ -160,7 +161,7 @@
 			
 			\item
 			\begin{equation*}
-				\exists x \land \text{ hatLuftZug}(x) \land \text{ hatGestank}(x)
+				\exists x \land \text{ hatLuftZug}(x) \land \text{ hatGestank}(x) \land \text{ hatGold}(x)
 			\end{equation*}
 			
 			\item
