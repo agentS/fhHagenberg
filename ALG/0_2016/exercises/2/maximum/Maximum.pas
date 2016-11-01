@@ -29,12 +29,7 @@ END;
 
 FUNCTION Max3b(a, b, c: INTEGER): INTEGER;
 BEGIN
-  IF Max2(a, b) > Max2(b, c) THEN BEGIN
-    Max3b := Max2(a, b);
-  END
-  ELSE BEGIN
-    Max3b := Max2(b, c);
-  END;
+  Max3b := Max2(Max2(a, b), c);
 END;
 
 BEGIN

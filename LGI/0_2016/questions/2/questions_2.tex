@@ -341,5 +341,217 @@
 				x \in \mathbb{N} \text{ } x < S \text{ } \land \text{ } x \geq N \text{ } \exists y, z \in \mathbb{N} \text{ } y \neq z \land x = y^{2} + z^{2} \\ \land \text{ } \lnot (\exists a, b, c \in \mathbb{N} \land b \neq c \land a = b^{2} + c^{2} \land a < S \land a \geq N \land a < x)
 			\end{aligned}
 		\end{equation*}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\text{istVaterVon}(x, y) :\Leftrightarrow \text{istMännlich}(x) \land \text{istElternTeilVon}(x, y)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\text{istTochterVon}(x, y) :\Leftrightarrow \text{istWeiblich}(x) \land \text{istElternTeilVon}(y, x)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\begin{aligned}
+					\text{istBruderVon}(x, y) :\Leftrightarrow \text{istMännlich}(x) \land \exists a, b \text{ } a \neq b \\ \land ((\text{istElternTeilVon}(a, x) \land \text{istElternTeilVon}(a, y)) \\ \lor ((\text{istElternTeilVon}(b, x) \land \text{istElternTeilVon}(b, y)))
+				 \end{aligned}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\begin{aligned}
+					\text{istGroßVaterVon}(x, y) :\Leftrightarrow \text{istMännlich}(x) \land \exists a, b \text{ } a \neq b \\ \land ((\text{istElternTeilVon}(a, y) \land \text{istVaterVon}(x, a)) \lor \\ (\text{istElternTeilVon}(b, y) \land \text{istVaterVon}(x, b)))
+				\end{aligned}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\begin{aligned}
+					\text{istTanteVon}(x, y) :\Leftrightarrow \text{istWeiblich}(x) \exists a, b \text{ } a \neq b \\ \land ((\text{istElternTeilVon}(a, y)) \lor (\text{istElternTeilVon}(b, y))) \\ \land \exists c, d \text{ } c \neq d \land ((\text{istElternTeilVon}(c, x) \land (\text{istElternTeilVon}(c, a) \lor \text{istElternTeilVon}(c, b))) \\ \lor (\text{istElternTeilVon}(d, x) \land (\text{istElternTeilVon}(d, a) \lor \text{istElternTeilVon}(d, b))))
+				\end{aligned}
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{equation*}
+			\text{prim}(x) :\Leftrightarrow x \neq 1 \land \forall y \lnot (y \neq 1 \land y \neq x \land y|x)
+		\end{equation*}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\forall x \text{ } x \geq 1 \land x < 40 \Rightarrow \text{prim}(x^{2} + x + 41)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall m \text{ } m \in \mathbb{N} \Rightarrow \exists k \text{ } k \in \mathbb{N} \land (m = 2 \cdot k \lor m = 2 \cdot k + 1)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall p \text{ } p \geq 2 \Rightarrow \exists n \text{ } n \geq 2 \land \text{prim}(p) \land p \leq n
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|c|}
+					\firsthline
+						i & $2^{i}$ & $i + 2$ & $i \cdot (i + 2)$ & $\frac{2^{i}}{i \cdot (i + 2)}$ \\
+					\hline
+						3 & 8 & 5 & 15 & $\frac{8}{15}$ \\
+					\hline
+						4 & 16 & 6 & 24 & $\frac{2}{3}$ \\
+					\hline
+						5 & 25 & 7 & 35 & $\frac{5}{7}$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			\item
+			\begin{center}
+				\begin{tabular}{|l|l|c|c|}
+					\firsthline
+						k & j & $k \cdot j$ & $ \displaystyle\sum k \cdot j $ \\
+					\hline
+						2 & 2 & 4 & \textbf{4} \\
+					\hline
+						3 & 2 & 6 &  \\
+						3 & 3 & 9 & \textbf{15} \\
+					\hline
+						4 & 2 & 8 &  \\
+						4 & 3 & 12 & \\
+						4 & 4 & 16 & \textbf{36} \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			\item
+			\begin{center}
+				\begin{tabular}{|l|l|c|c|}
+					\firsthline
+						j & k & $k + j$ & $ \displaystyle\prod k + j $ \\
+					\hline
+						1 & 2 & 3 & \\
+					\hline
+						1 & 3 & 4 & \textbf{12} \\
+					\hline
+						2 & 3 & 5 & \\
+					\hline
+						2 & 4 & 6 & \textbf{30} \\
+					\hline
+						3 & 4 & 7 & \\
+					\hline
+						3 & 5 & 8 & \textbf{56} \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{center}
+				\begin{tabular}{|l|c|}
+					\firsthline
+						k & $4 \cdot k - 20$ \\
+					\hline
+						3 & -8 \\
+					\hline
+						4 & -4 \\
+					\hline
+						5 & 0 \\
+					\hline
+						6 & 4 \\
+					\hline
+						7 & 8 \\
+					\hline
+						8 & 12 \\
+					\hline
+						9 & 16 \\
+					\hline
+						\textbf{10} & \textbf{20} \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			\item
+			\begin{center}
+				\begin{tabular}{|l|c|}
+					\firsthline
+						k & $4 \cdot k - 20 \leq 0$ \\
+					\hline
+						3 & -8 \\
+					\hline
+						4 & -4 \\
+					\hline
+						\textbf{5} & \textbf{0} \\
+					\hline
+						6 & 4 \\
+					\hline
+						7 & 8 \\
+					\hline
+						8 & 12 \\
+					\hline
+						9 & 16 \\
+					\hline
+						10 & 20 \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{center}
+				\begin{tabular}{|l|c|}
+					\firsthline
+						k & $(k - 5)^{2}$ \\
+					\hline
+						2 & 9 \\
+					\hline
+						3 & 4 \\
+					\hline
+						4 & 1 \\
+					\hline
+						\textbf{5} & \textbf{0} \\
+					\hline
+						6 & 1 \\
+					\hline
+						7 & 4 \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			\item
+			\begin{center}
+				\begin{tabular}{|l|c|}
+					\firsthline
+						k & $(k - 5)^{2} \leq 4$ \\
+					\hline
+						2 & 9 \\
+					\hline
+						3 & 4 \\
+					\hline
+						4 & 1 \\
+					\hline
+						\textbf{5} & \textbf{0} \\
+					\hline
+						6 & 1 \\
+					\hline
+						7 & 4 \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
 	\end{enumerate}
 \end{document}
