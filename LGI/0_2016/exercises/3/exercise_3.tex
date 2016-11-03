@@ -1,0 +1,120 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			Es gibt mindestens einen Wert x, der jeden Wert y ohne Rest teilt.
+			\newline
+			Diese Aussage ist wahr, da jede ganze Zahl durch 1 und durch sich selbst geteilt wird und x diese Werte annehmen kann.
+			
+			\begin{equation*}
+				x | y \leftarrow x = 1
+			\end{equation*}
+			\begin{equation*}
+				1 | y \equiv w
+			\end{equation*}
+			\begin{equation*}
+				x | y \leftarrow x = y
+			\end{equation*}
+			\begin{equation*}
+				y | y \equiv w
+			\end{equation*}
+			
+			\item
+			Für alle x gibt es mindestens ein y, welches von allen x ohne Rest geteilt wird.
+			\newline
+			Diese Aussage ist falsch, da y vor x gebunden wird und somit für jeden beliebigen Wert von x den selben Wert annehmen muss und nur die Zahl 0 von allen Zahlen ohne Rest geteilt wird. Allerdings kann y aufgrund der Beschränkung des Universums auf die ganzen Zahlen nicht den Wert 0 annehmen.
+			
+			\item
+			Es gibt mindestens ein x gibt es eine beliebige Menge von y, die x ohne Rest teilen.
+			\newline
+			
+			
+			\item
+			Für alle Werte x gibt es mindestens ein Element y, dass von den x ohne Rest geteilt wird.
+			\newline
+			Diese Aussage ist wahr, da y den Wert von 1 annehmen kann und jede Zahl durch 1 ohne Rest geteilt wird.
+			\begin{equation*}
+				y | x \leftarrow y = 1
+			\end{equation*}
+			\begin{equation*}
+				1 | x \equiv w
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				P(x, y) :\Leftrightarrow x^{2} + y^{2} > 10
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				Q(x) :\Leftrightarrow \exists a, b \text{ } a \neq b \land \text{isPrime}(a) \land \text{isPrime}(b) \land x = a^{2} + b^{2}
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\forall x \text{ } x \geq 1 \land x < 40 \Rightarrow \text{prim}(x^{2} + x + 41)
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\forall p \text{ } p \geq 2 \Rightarrow \exists n \text{ } n \geq 2 \land \text{prim}(p) \land p \leq n
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item Die FK "=" erhält zwei Wahrheitswerte (die Ergebnisse der PK "prim") als Parameter.
+			\item Die PK "prim" erhält einen Wahrheitswert als Parameter.
+			\item Die PK "=" erhält einen Wahrheitswert (Ergebnis der PK "prim") als Parameter.
+			\item Diese Aussage ist nicht gültig, wenn der Wert von x und y vertauscht wird. Der Absolutbetrag der Differenz muss 2 ergeben.
+		\end{enumerate}
+		
+		\item
+		\begin{equation*}
+			\lnot (\forall p \text{ } p \geq 2 \Rightarrow \exists n \text{ } n \geq 2 \land \text{prim}(p) \land p \leq n)
+		\end{equation*}
+		\begin{equation*}
+			\exists p \text{ } \lnot(p \geq 2 \Rightarrow \exists n \text{ } n \geq 2 \land \text{prim}(p) \land p \leq n)
+		\end{equation*}
+		\begin{equation*}
+			\exists p \text{ } \lnot(\lnot (p \geq 2) \lor (\exists n \text{ } n \geq 2 \land \text{prim}(p) \land p \leq n))
+		\end{equation*}
+		\begin{equation*}
+			\exists p \text{ } ((p \geq 2) \land \lnot (\exists n \text{ } n \geq 2 \land \text{prim}(p) \land p \leq n))
+		\end{equation*}
+		\begin{equation*}
+			\exists p \text{ } ((p \geq 2) \land \forall n \text{ } \lnot (n \geq 2 \land (\text{prim}(p) \land p \leq n)))
+		\end{equation*}
+		\begin{equation*}
+			\exists p \text{ } p \geq 2 \land \forall n \text{ } \lnot (n \geq 2) \lor \lnot (\text{prim}(p) \land p \leq n)
+		\end{equation*}
+		\begin{equation*}
+			\exists p \text{ } p \geq 2 \land \forall n \text{ } \lnot (n \geq 2) \lor \lnot (\text{prim}(p)) \lor \lnot (p \leq n)
+		\end{equation*}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			\begin{center}
+				\begin{tabular}{|l|l|c|c|c|}
+					\firsthline
+						x & y & $x \cdot y$ & $x + y$ & $ \overline{x + y} $ \\
+					\hline
+						0 & 0 & \textbf{0} & 0 & \textbf{1} \\
+						0 & 1 & \textbf{0} & 1 & \textbf{0} \\
+						1 & 0 & \textbf{0} & 1 & \textbf{0} \\
+						1 & 1 & \textbf{1} & 1 & \textbf{0} \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Die Aussagen sind nicht äquivalent.
+		
+			\item
+			\begin{center}
+				\begin{tabular}{|l|l|c|c|c|c|c|c|c|}
+					\firsthline
+						x & y & $\overline{x} \cdot \overline{y}$ & $x \cdot y$ & $\overline{x} \cdot \overline{y} + x \cdot y$ & $ x \cdot \overline{y} $ & $ \overline{x} \cdot y $ & $ x \cdot \overline{y} + \overline{x} \cdot y $ & $ \overline{x \cdot \overline{y} + \overline{x} \cdot y} $ \\
+					\hline
+						0 & 0 & 1 & 0 & \textbf{1} & 0 & 0 & 0 & \textbf{1} \\
+						0 & 1 & 0 & 0 & \textbf{0} & 0 & 1 & 1 & \textbf{0} \\
+						1 & 0 & 0 & 0 & \textbf{0} & 1 & 0 & 1 & \textbf{0} \\
+						1 & 1 & 0 & 1 & \textbf{1} & 0 & 0 & 0 & \textbf{1} \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Die Aussagen sind äquivalent.
+		
+			\item
+			\begin{center}
+				\begin{tabular}{|l|l|l|c|c|c|c|c|c|c|}
+					\firsthline
+						x & y & z & $x \cdot y$ & $\overline{x} \cdot z$ & $y \cdot z$ & $x \cdot y + \overline{x} \cdot z + y \cdot z$ & $x \cdot y$ & $\overline{x} \cdot z$ & $x \cdot y + \overline{x} \cdot z$ \\
+					\hline
+						0 & 0 & 0 & 0 & 0 & 0 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						0 & 0 & 1 & 0 & 1 & 0 & \textbf{1} & 0 & 1 & \textbf{1} \\
+						0 & 1 & 0 & 0 & 0 & 0 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						0 & 1 & 1 & 0 & 1 & 1 & \textbf{1} & 0 & 1 & \textbf{1} \\
+						1 & 0 & 0 & 0 & 0 & 0 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						1 & 0 & 1 & 0 & 0 & 0 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						1 & 1 & 0 & 1 & 0 & 0 & \textbf{1} & 1 & 0 & \textbf{1} \\
+						1 & 1 & 1 & 1 & 0 & 1 & \textbf{1} & 1 & 0 & \textbf{1} \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Die Aussagen sind gleichwertig.
+		
+			\item
+			\begin{center}
+				\begin{tabular}{|l|l|l|c|c|c|c|c|}
+					\firsthline
+						x & y & z & $y + z$ & $x \cdot (y + z)$ & $x \cdot y$ & $x \cdot z$ & $(x \cdot y) + (x \cdot z)$ \\
+					\hline
+						0 & 0 & 0 & 0 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						0 & 0 & 1 & 1 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						0 & 1 & 0 & 1 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						0 & 1 & 1 & 1 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						1 & 0 & 0 & 0 & \textbf{0} & 0 & 0 & \textbf{0} \\
+						1 & 0 & 1 & 1 & \textbf{1} & 0 & 1 & \textbf{1} \\
+						1 & 1 & 0 & 1 & \textbf{1} & 1 & 0 & \textbf{1} \\
+						1 & 1 & 1 & 1 & \textbf{1} & 1 & 1 & \textbf{1} \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Die Aussagen sind gleichwertig.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
