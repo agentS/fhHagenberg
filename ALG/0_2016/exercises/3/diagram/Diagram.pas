@@ -1,0 +1,4 @@
+PROGRAM Diagram;
+
+BEGIN
+END.

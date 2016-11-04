@@ -8,6 +8,7 @@ CONST MAX_BASE = 36;
   ASCII_A_LOWER = Ord('a');
   ASCII_Z_LOWER = Ord('z');
   ALPHANUMERIC_DIGIT_OFFSET = 10;
+  MAX_STRING_REPRESENTATION_LENGTH = 5;
 
 FUNCTION Power(base: SMALLINT; exponent: SMALLINT): SMALLINT;
   VAR i: INTEGER;
@@ -34,6 +35,16 @@ BEGIN
   END
   ELSE BEGIN
     ToUpperCase := Chr(characterASCIIValue);
+  END;
+END;
+
+Function NumberToChar(number: INTEGER): CHAR;
+BEGIN
+  IF number >= ALPHANUMERIC_DIGIT_OFFSET THEN BEGIN
+    NumberToChar := Chr(number - ALPHANUMERIC_DIGIT_OFFSET + ASCII_A_UPPER);
+  END
+  ELSE BEGIN
+    NumberToChar := Chr(number + ASCII_0);
   END;
 END;
 
@@ -90,12 +101,31 @@ BEGIN
   END;
 END;
 
-FUNCTION DigitsOf(value: INTEGER; base: INTEGER): INTEGER;
-  VAR i: INTEGER;
-
+FUNCTION DigitsOf(value: INTEGER; base: INTEGER): STRING;
+  VAR i, j: INTEGER;
+  VAR remainder: INTEGER;
+  VAR stringRepresentationReverse: STRING[MAX_STRING_REPRESENTATION_LENGTH];
+  VAR stringRepresentation: STRING[MAX_STRING_REPRESENTATION_LENGTH];
+  VAR stringRepresentationReverseLength: INTEGER;
 BEGIN
-  
+  i := 1;
+  WHILE (value > 0) DO BEGIN
+  	remainder := value MOD base;
+    stringRepresentationReverse[i] := NumberToChar(remainder);
+    value := value DIV base;
+    IF value > 0 THEN BEGIN
+      i := i + 1;
+    END;
+  END;
+
+  FOR j := i DOWNTO 1 DO BEGIN
+    stringRepresentation[i - j + 1] := stringRepresentationReverse[j];
+  END;
+  stringRepresentation[0] := Chr(i);
+  DigitsOf := stringRepresentation;
 END;
+
+
 
 BEGIN
   //WriteLn(ValueOf(';<>=', 100));
@@ -104,4 +134,6 @@ BEGIN
 
   WriteLn(ValueOf('Z9', 36));
   WriteLn(ValueOf('10010', 2));
+  WriteLn(DigitsOf(1269, 36));
+  WriteLn(DigitsOf(18, 2));
 END.
