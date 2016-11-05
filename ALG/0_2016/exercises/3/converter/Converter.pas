@@ -102,11 +102,10 @@ BEGIN
 END;
 
 FUNCTION DigitsOf(value: INTEGER; base: INTEGER): STRING;
-  VAR i, j: INTEGER;
+  VAR i, j: SMALLINT;
   VAR remainder: INTEGER;
   VAR stringRepresentationReverse: STRING[MAX_STRING_REPRESENTATION_LENGTH];
   VAR stringRepresentation: STRING[MAX_STRING_REPRESENTATION_LENGTH];
-  VAR stringRepresentationReverseLength: INTEGER;
 BEGIN
   i := 1;
   WHILE (value > 0) DO BEGIN
@@ -125,7 +124,25 @@ BEGIN
   DigitsOf := stringRepresentation;
 END;
 
+FUNCTION Sum(d0: STRING; b0: INTEGER; d1: STRING; b1: INTEGER): INTEGER;
+BEGIN
+  Sum := ValueOf(d0, b0) + ValueOf(d1, b1);
+END;
 
+FUNCTION Diff(d0: STRING; b0: INTEGER; d1: STRING; b1: INTEGER): INTEGER;
+BEGIN
+  Diff := ValueOf(d0, b0) - ValueOf(d1, b1);
+END;
+
+FUNCTION Prod(d0: STRING; b0: INTEGER; d1: STRING; b1: INTEGER): INTEGER;
+BEGIN
+  Prod := ValueOf(d0, b0) * ValueOf(d1, b1);
+END;
+
+FUNCTION Quot(d0: STRING; b0: INTEGER; d1: STRING; b1: INTEGER): INTEGER;
+BEGIN
+  Quot := ValueOf(d0, b0) DIV ValueOf(d1, b1);
+END;
 
 BEGIN
   //WriteLn(ValueOf(';<>=', 100));
@@ -136,4 +153,10 @@ BEGIN
   WriteLn(ValueOf('10010', 2));
   WriteLn(DigitsOf(1269, 36));
   WriteLn(DigitsOf(18, 2));
+
+
+  WriteLn(Sum('Z9', 36, '10010', 2));
+  WriteLn(Diff('Z9', 36, '10010', 2));
+  WriteLn(Quot('Z9', 36, '10010', 2));
+  WriteLn(Prod('L2', 26, '10010', 2));
 END.
