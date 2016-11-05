@@ -4,7 +4,7 @@ CONST POLTICIAN_COUNT = 6;
   INDEX_NEGATIVE_VOTES = 1;
   INDEX_POSITIVE_VOTES = 2;
   PADDING_CENTER = 1;
-  HEADER_LENGTH = 8;
+  HEADER_MIN_LENGTH = 8;
   EXIT_FAILURE = 1;
 
 TYPE POLITICIAN_POLL_RESULT = ARRAY[1..POLTICIAN_COUNT, 1..2] OF INTEGER;
@@ -132,9 +132,9 @@ BEGIN
       Write(' ');
     END
     ELSE BEGIN
-      IF (i - 1) <= HEADER_LENGTH THEN BEGIN
+      IF (i - 1) <= HEADER_MIN_LENGTH THEN BEGIN
         Write('negative');
-        i := i - (HEADER_LENGTH - 1);
+        i := i - (HEADER_MIN_LENGTH - 1);
       END
       ELSE BEGIN
         Write(' ');
@@ -148,12 +148,12 @@ BEGIN
   i := 1;
   WHILE i <= column_length_positive DO BEGIN
     IF i > PADDING_CENTER THEN BEGIN
-      IF (i - 1) > HEADER_LENGTH THEN BEGIN
+      IF (i - 1) > HEADER_MIN_LENGTH THEN BEGIN
         Write(' ');
       END
       ELSE BEGIN
         Write('positive');
-        i := i + (HEADER_LENGTH - 1);
+        i := i + (HEADER_MIN_LENGTH - 1);
       END;
     END
     ELSE BEGIN

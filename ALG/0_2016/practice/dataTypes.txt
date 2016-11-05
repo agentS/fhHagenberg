@@ -1,0 +1,43 @@
+Skalare Datentypen
+------------------
+
+INTEGER: -32768 bis 32767 (2 Byte)
+SMALLINT: -32767 bis 32767 (2 Byte)
+LONGINT: 4 Byte
+SHORTINT: -128 bis 127 (1 Byte)
+BYTE: 0 bis 255 (1 Byte)
+WORD: 0 bis 65535 (2 Byte)
+REAL: 6 Byte
+DOUBLE: 8 Byte
+SINGLE: 4 Byte
+EXTENDED: 10 Byte
+COMP: 8 Byte (für sehr große ganze Zahlen)
+
+Orthogonale Datentypen:
+
+CHAR: 1 Byte
+	Ord(x) --> liefert die Ordnungszahl eines Zeichens
+		z.B.: Der wie vielte Buchstabe ist d?
+			Ord('d') - Ord('a')
+BOOLEAN: 1 Byte
+
+Festlegung auf bestimmten Wertebereich
+start..end --> 0..11
+
+Enumeration:
+(red, yellow, green)
+
+Typidentität: gleicher Name des Datentyps --> Vorsicht: auch bei Aliasen auf den selben Datentyp --> bei Call-by-Reference
+Typkompatibilität: vordefinierte Regeln, die festlegen, welche Datentypen mit welchen Datentypen in Anweisungen verwendet werden können --> Symmetrie
+Zuweisungskompatibilität: asymmetrisch; legt fest, welche Datentypen auf der rechten Seite einer Zuweisung stehen können --> welche Werte können der linken Seite (auch für Call-by-Value) zugewiesen werden
+	Vorsicht: eine mehrfache implizite Datentypdefinition ist NICHT typkompatibel
+	
+Strings
+-------
+
+Standardlänge: 256 Byte
+erstes Byte enthält die Länge des Strings
+z.B.
+	- "Hallo" --> erstes Byte: 5
+	- "Hello Kitty!" --> erstes Byte: 12
+Problem: max. Länge 255 Zeichen
