@@ -15,6 +15,7 @@ TYPE PoliticianPollResults = ARRAY[1..POLTICIAN_COUNT] OF PollResult;
 VAR politicianPoll: PoliticianPollResults;
   extremeValues: PollResult;
 
+(* Calculates the absolute value of the parameter. *)
 FUNCTION Abs(n: INTEGER): INTEGER;
   VAR square: LONGINT;
 BEGIN
@@ -22,6 +23,7 @@ BEGIN
   Abs := Round(Sqrt(Square));
 END;
 
+(* Determines the maximum of the two input parameters. *)
 FUNCTION Max2(number_a, number_b: INTEGER): INTEGER;
 BEGIN
   IF number_a > number_b THEN BEGIN
@@ -32,6 +34,10 @@ BEGIN
   END;
 END;
 
+(*
+  Rounds a number and returns the result without the trailing 0
+  --> divides result by 10.
+*)
 FUNCTION Round10(number_to_round: INTEGER): INTEGER;
   CONST ROUNDING_ACCURACY = 10;
 
@@ -47,6 +53,12 @@ BEGIN
   END;
 END;
 
+(*
+Reads the result of the poll.
+
+In addition, the input is validated.
+Furthermore, the maximum and the minimum values required for displaying purposes are stored.
+*)
 PROCEDURE DeterminePoliticianRating(VAR pollResult: PoliticianPollResults; VAR extremeValues: PollResult);
   CONST NEGATIVE_VOTES_MIN = -100;
     NEGATIVE_VOTES_MAX = 100;
@@ -59,7 +71,7 @@ BEGIN
     Write('Please enter the number of negative poll results for politician ', i, '>');
     ReadLn(pollResult[i].NegativeVotes);
     IF (pollResult[i].NegativeVotes > NEGATIVE_VOTES_MAX) OR (pollResult[i].NegativeVotes < NEGATIVE_VOTES_MIN) THEN BEGIN
-      // invalid input --> terminate program
+      (* invalid input --> terminate program *)
       WriteLn('Please enter a valid integer between ', NEGATIVE_VOTES_MIN, ' and ', NEGATIVE_VOTES_MAX);
       System.Halt(EXIT_FAILURE);
     END;
@@ -67,30 +79,42 @@ BEGIN
 
     Write('Please enter the number of positive poll results for politician ', i, '>');
     ReadLn(pollResult[i].PositiveVotes);
-    IF (pollResult[i].PositiveVotes > POSITIVE_VOTES_MAX) OR (pollResult[i].PositiveVotes < POSITIVE_VOTES_MIN) THEN BEGIN
-      // invalid input --> terminate program
+    IF
+		  (pollResult[i].PositiveVotes > POSITIVE_VOTES_MAX)
+		  OR
+      (pollResult[i].PositiveVotes < POSITIVE_VOTES_MIN)
+    THEN BEGIN
+      (* invalid input --> terminate program *)
       WriteLn('Please enter a valid integer between ', POSITIVE_VOTES_MIN, ' and ', POSITIVE_VOTES_MAX);
       System.Halt(EXIT_FAILURE);
     END;
     pollResult[i].PositiveVotes := Abs(pollResult[i].PositiveVotes);
 
+	  (* round the value and retrieve the relevant part (without trailing 0) *)
     pollResult[i].NegativeVotes := Round10(pollResult[i].NegativeVotes);
     pollResult[i].PositiveVotes := Round10(pollResult[i].PositiveVotes);
 
     IF (pollResult[i].NegativeVotes + pollResult[i].PositiveVotes) > 10 THEN BEGIN
-      // input exceeds 100 per cent --> terminate the program
+      (* input exceeds 100 per cent --> terminate the program *)
       WriteLn('The two rounded values you entered exceed 100 per cent which means the values are invalid.');
       System.Halt(EXIT_FAILURE);
     END;
 
+    (* Determine the extreme values of the total input. *)
     extremeValues.NegativeVotes := Max2(extremeValues.NegativeVotes, pollResult[i].NegativeVotes);
     extremeValues.PositiveVotes := Max2(extremeValues.PositiveVotes, pollResult[i].PositiveVotes);
   END;
 END;
 
-PROCEDURE PrintRow(negative_votes, positive_votes: SMALLINT; columnLengthNegative, columnLengthPositive: SMALLINT);
+(* Prints the correct number of X representing the positive and negative votes. *)
+PROCEDURE PrintRow
+(
+  negative_votes, positive_votes: SMALLINT;
+  columnLengthNegative, columnLengthPositive: SMALLINT
+);
   VAR i: SMALLINT;
 BEGIN
+  (* print the negative votes *)
   FOR i := columnLengthNegative DOWNTO 1 DO BEGIN
     IF i = 1 THEN BEGIN
       Write(' ');
@@ -107,6 +131,7 @@ BEGIN
 
   Write('|');
 
+  (* print the positive votes *)
   FOR i := 1 TO columnLengthPositive DO BEGIN
     IF i > PADDING_CENTER THEN BEGIN
       IF (i - 1) > positive_votes THEN BEGIN
@@ -124,6 +149,7 @@ BEGIN
   WriteLn('');
 END;
 
+(* Print the heading naming the left (negative) and right(positive) column. *)
 PROCEDURE PrintHeader(columnLengthNegative, columnLengthPositive: SMALLINT);
   VAR i: SMALLINT;
 BEGIN
@@ -181,6 +207,7 @@ BEGIN
   WriteLn('');
 END;
 
+(* Prints the heading and the result for each politician. *)
 PROCEDURE PrintPoliticianRating(VAR extremeValues: PollResult; VAR pollResult: PoliticianPollResults);
   VAR i: SMALLINT;
     columnLengthNegative, columnLengthPositive: SMALLINT;
