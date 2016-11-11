@@ -14,11 +14,10 @@ PROCEDURE AppendToArray(VAR sourceArray, destinationArray: ARRAY OF INTEGER; sou
 	VAR i: WORD;
 		sourceArrayLength: WORD;
 BEGIN
-	sourceArrayLength := High(sourceArray);
+	sourceArrayLength := High(sourceArray) + 1;
 	i := sourceIndex;
 	WHILE i < sourceArrayLength DO BEGIN
-		WriteLn(destinationLength);
-		destinationArray[destinationLength - 1] := sourceArray[i];
+		destinationArray[destinationLength] := sourceArray[i];
 		i := i + 1;
 		destinationLength := destinationLength + 1;
 	END;
@@ -27,6 +26,7 @@ END;
 PROCEDURE Merge(a0, a1: ARRAY OF INTEGER; VAR a2: ARRAY OF INTEGER; VAR n2: INTEGER);
 	VAR i, j: WORD;
 		lengthA0, lengthA1: WORD;
+		previousDigitA0, previousDigitA1: INTEGER;
 BEGIN
 	i := Low(a0);
 	j := Low(a1);
@@ -35,19 +35,24 @@ BEGIN
 
 	(* iterate through both fields to check their common values *)
 	WHILE (i < lengthA0) AND (j < lengthA1) DO BEGIN
-		WriteLn(a0[i], ' ', a1[j]);
 		IF a0[i] < a1[j] THEN BEGIN
-			a2[n2] := a0[i];
+			IF a0[i] <> previousDigitA1 THEN BEGIN
+				a2[n2] := a0[i];
+				n2 := n2 + 1;
+			END;
 			i := i + 1;
-			n2 := n2 + 1;
+			previousDigitA0 := a0[i];
 		END
 		ELSE IF a0[i] > a1[j] THEN BEGIN
-			a2[n2] := a1[j];
+			IF a1[j] <> previousDigitA0 THEN BEGIN
+				a2[n2] := a1[j];
+				n2 := n2 + 1;
+			END;
 			j := j + 1;
-			n2 := n2 + 1;
 		END
 		ELSE BEGIN
-			WriteLn('equal value at index ', i, ': ', a0[i]);
+			previousDigitA0 := a0[i];
+			previousDigitA1 := a1[j];
 			j := j + 1;
 			i := i + 1;
 		END;
@@ -57,7 +62,7 @@ BEGIN
 	AppendToArray(a0, a2, i, n2);
 
 	(* add the eventually remaining elements of array 1 *)
-	AppendToArray(a0, a2, j, n2);
+	AppendToArray(a1, a2, j, n2);
 END;
 
 PROCEDURE PrintArray(VAR arrayToPrint: ARRAY OF INTEGER; arrayLength: INTEGER);
