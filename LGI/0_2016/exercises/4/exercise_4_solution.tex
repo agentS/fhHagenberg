@@ -24,15 +24,15 @@
 			\begin{center}
 				\begin{tabular}{|l|c|c|c|}
 					\firsthline
-						i & $2^{i}$ & $i \cdot (i + 1)$ & $\frac{2^{i}}{i \cdot (i + 1)}$ \\
+						i & $2^{i}$ & $i \cdot (i + 2)$ & $\frac{2^{i}}{i \cdot (i + 2)}$ \\
 					\hline
-						3 & 8 & 12 & $\frac{8}{12}$ \\
-						4 & 16 & 20 & $\frac{4}{5}$ \\
-						5 & 32 & 30 & $\frac{16}{15}$ \\
+						3 & 8 & 12 & $\frac{8}{15}$ \\
+						4 & 16 & 20 & $\frac{4}{6}$ \\
+						5 & 32 & 30 & $\frac{32}{35}$ \\
 					\hline
 				\end{tabular}
 				\newline
-				\textbf{Summe = $2.5\overline{3}$}
+				\textbf{Summe = $2.114$}
 			\end{center}
 			
 			\item
@@ -43,14 +43,14 @@
 					\hline
 						2 & 2 & 4 & $4$ \\
 						3 & 2 & 6 &  \\
-						3 & 3 & 9 & 45 \\
+						3 & 3 & 9 & 54 \\
 						4 & 2 & 8 &  \\
 						4 & 3 & 12 &  \\
 						4 & 4 & 16 & 1536 \\
 					\hline
 				\end{tabular}
 				\newline
-				\textbf{Summe = $1585$}
+				\textbf{Summe = $1594$}
 			\end{center}
 			
 			\item
@@ -65,12 +65,10 @@
 						2 & 4 & 6 & 11 \\
 						3 & 4 & 7 &  \\
 						3 & 5 & 8 & 15 \\
-						4 & 5 & 9 &  \\
-						4 & 6 & 10 & 19 \\
 					\hline
 				\end{tabular}
 				\newline
-				\textbf{Produkt} = $7 \cdot 11 \cdot 15 \cdot 19 = 21945$
+				\textbf{Produkt} = $7 \cdot 11 \cdot 15 = 1155$
 			\end{center}
 		\end{enumerate}
 		
@@ -100,18 +98,18 @@
 			
 				\item
 				\begin{center}
-					\begin{tabular}{|l|c|}
+					\begin{tabular}{|l|c|c|}
 						\firsthline
-							k & $4 \cdot k - 20$ \\
+							k & $4 \cdot k - 20$ & $(4 \cdot k - 20) \leq 0$ \\
 						\hline
-							3 & -8 \\
-							4 & -4 \\
-							\textbf{5} & 0 \\
-							6 & 4 \\
-							7 & 8 \\
-							8 & 12 \\
-							9 & 36 \\
-							10 & 20 \\
+							3 & -8 & w \\
+							4 & -4 & w \\
+							\textbf{5} & 0 & w \\
+							6 & 4 & f \\
+							7 & 8 & f \\
+							8 & 12 & f \\
+							9 & 36 & f \\
+							10 & 20 & f \\
 						\hline
 					\end{tabular}
 					\newline
@@ -142,16 +140,16 @@
 				
 				\item
 				\begin{center}
-					\begin{tabular}{|l|c|}
+					\begin{tabular}{|l|c|c|}
 						\firsthline
-							k & $(k - 5)^{2}$ \\
+							k & $(k - 5)^{2}$ & $((k - 5)^{2}) \leq 4$ \\
 						\hline
-							2 & 9 \\
-							\textbf{3} & 4 \\
-							4 & 1 \\
-							5 & 0 \\
-							6 & 1 \\
-							7 & 4 \\
+							2 & 9 & f \\
+							\textbf{3} & 4 & w \\
+							4 & 1 & w \\
+							5 & 0 & w \\
+							6 & 1 & w \\
+							7 & 4 & w \\
 						\hline
 					\end{tabular}
 					\newline
@@ -227,10 +225,10 @@
 		
 		\item
 		\begin{enumerate}
-			\item $\{2, 3\}$
-			\item $\{\{3, 4\}\}$
-			\item $\{3\}$
-			\item $\{4\}$
+			\item $Z = \{2, 3\}$ \textbf{Alternative (ohne Mengenangabe)}: $x = 2 \lor x = 3$
+			\item $Z = \{\{3, 4\}\}$
+			\item $Z = \{3\}$
+			\item $Z = \{\}$
 		\end{enumerate}
 		
 		\item
@@ -254,6 +252,11 @@
 		\textbf{zu zeigen}: $z \in \{\} \Rightarrow z \in M$
 		\newline
 		Falls z kein Element der leeren Menge ist, dann ist die Prämisse falsch und da es sich um eine Implikation handelt ist somit die Aussage wahr.
+		\newline
+		\textbf{In der leeren Menge sind keine Elemente enthalten}, also ist die \textbf{Prämisse immer falsch} und daher ist die \textbf{Aussage richtig} sowie der Beweis beendet.
+		\newline		
+		\newline
+		Optionale Weiterführung:
 		\newline
 		Falls z ein Element der leeren Menge ist, muss die Konklusion $z \in M$ wahr sein.
 		\newline
