@@ -24,10 +24,6 @@ BEGIN
 	GreatestCommonDivisor := q;
 END;
 
-FUNCTION LeastCommonMultiple(m, n: INTEGER): INTEGER;
-BEGIN
-END;
-
 PROCEDURE ReduceRational(VAR rationalToReduce: Rational);
 	VAR gcd: INTEGER;
 BEGIN
@@ -72,6 +68,20 @@ BEGIN
 	ReduceRational(c);
 END;
 
+PROCEDURE AddRational(VAR a, b: Rational; VAR c: Rational);
+BEGIN
+	c.numerator := a.numerator * b.denominator + b.numerator * a.denominator;
+	c.denominator := a.denominator * b.denominator;
+	ReduceRational(c);
+END;
+
+PROCEDURE SubtractRational(VAR a, b: Rational; VAR c: Rational);
+BEGIN
+	c.numerator := a.numerator * b.denominator - b.numerator * a.denominator;
+	c.denominator := a.denominator * b.denominator;
+	ReduceRational(c);
+END;
+
 VAR r0, r1, r2: Rational;
 BEGIN
 	(*WriteLn(GreatestCommonDivisor(5, 13));
@@ -89,10 +99,18 @@ BEGIN
 	PrintRational(r1);
 	ReduceRational(r2);*)
 
-	MultiplyRational(r0, r1, r2);
+	(*MultiplyRational(r0, r1, r2);
 	PrintRational(r2);
 	DivideRational(r1, r0, r2);
 	PrintRational(r2);
 	DivideRational(r0, r1, r2);
+	PrintRational(r2);*)
+	(*AddRational(r0, r1, r2);
+	PrintRational(r2);*)
+	SubtractRational(r0, r1, r2);
+	PrintRational(r2);
+	SubtractRational(r1, r0, r2);
+	PrintRational(r2);
+	SubtractRational(r1, r1, r2);
 	PrintRational(r2);
 END.
