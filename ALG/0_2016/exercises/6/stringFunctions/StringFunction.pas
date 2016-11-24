@@ -114,6 +114,7 @@ BEGIN
 		i := inputLength;
 		j := inputLength + charactersToShift;
 		
+		input[0] := Char(j);
 		WHILE i >= startIndexCompleteString DO BEGIN
 			input[j] := input[i];
 			i := i - 1;
@@ -121,8 +122,11 @@ BEGIN
 		END;
 
 		(* insert the characters of the new string *)
-		j := 1;
-		WHILE j <= charactersToShift DO BEGIN
+		j := startIndexStringToInsert;
+		WHILE j <= (startIndexStringToInsert + charactersToShift) DO BEGIN
+			WriteLn('j: ', j);
+			WriteLn('new[j]: ', charactersToInsert[j]);
+			WriteLn('input[i]: ', input[i]);
 			input[i] := charactersToInsert[j];
 			i := i + 1;
 			j := j + 1;
@@ -168,6 +172,7 @@ BEGIN
 			The new word is longer than the one to replace.
 			Shift the old characters to the right and insert the remaining characters of the actual word.
 		*)
+		WriteLn('si: ', i - startIndex);
 		ShiftToRightAndInsert(new, i - startIndex, Length(new) - (i - startIndex), i, input);
 	END
 	ELSE IF i <= oldStringEndIndex THEN BEGIN
