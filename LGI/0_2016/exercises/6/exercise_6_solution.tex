@@ -1,0 +1,120 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{german}
+\usepackage{a4,ngerman}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[]{cite}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\selectlanguage{german}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\cfoot{\textcopyright Lukas Schörghuber, S1610307103}
+
+\begin{document}
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				\bigcup(M) := \{ a | \exists m \text{ } m \in M \land a \in m \}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				\bigcap(M) := \{ a | \exists m \text{ } m \in M \land a \in m \land \forall l \text{ } l \in M \land m \neq l  \Rightarrow a \in l \}
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item
+			\begin{figure}[ht!]
+				\begin{center}
+					\includegraphics[height=45mm]{1a.eps}
+					\caption{gerichteter Graph für Aufgabe 2.}
+				\end{center}
+			\end{figure}
+			
+			\item
+			\begin{enumerate}
+				\item
+				\begin{equation*}
+					M := \{ (5, 5) \}
+				\end{equation*}
+				
+				\item
+				\begin{equation*}
+					M := \{ (3, 1), (3, 2) \}
+				\end{equation*}
+			\end{enumerate}
+			
+			\item
+			\begin{itemize}
+				\item \textbf{reflexiv}: \textbf{falsch}, da die Knoten 1, 3 und 4 über keine Selbstpfeile verfügen
+				\item \textbf{irreflexiv}: \textbf{falsch}, da die Knoten 2 und 5 über Selbstpfeile verfügen
+				\item \textbf{symmetrisch}: \textbf{falsch}, da nur zwischen den Knoten 1 und 3 Doppelpfeile vorhanden sind
+				\item \textbf{asymmetrisch}: \textbf{falsch}, da zwischen Knoten 1 und 3 Doppelpfeile vorhanden sind und die Knoten 2 und 5 über Selbstpfeile verfügen
+				\item \textbf{antisymmetrisch}: \textbf{falsch}, da zwischen Knoten 1 und 3 Doppelpfeile vorhanden sind
+				\item \textbf{transitiv}: \textbf{wahr}
+			\end{itemize}
+		\end{enumerate}
+		
+		\item
+		Zur Ermittlung der Ergebnisse muss in die Definition eingesetzt werden.
+		\newline
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\firsthline
+				Relation & reflexiv & irreflexiv & symmetrisch & asymmetrisch & antisymmetrisch & transitiv \\
+			\hline
+				$\in$ & falsch & wahr & falsch & wahr & wahr & falsch \\
+			\hline
+				$\subseteq$ & wahr & falsch & falsch & falsch & wahr & falsch \\
+			\hline
+		\end{tabular}
+		
+		\clearpage
+		\item
+		Universum: $\mathbb{N}$
+		\begin{itemize}
+			\item \textbf{relfexiv}: \textbf{wahr}, da jede Zahl sich selbst ohne Rest teilt
+			\item \textbf{irreflexiv}: \textbf{falsch}, da jede Zahl sich selbst ohne Rest teilt
+			\item \textbf{symmetrisch}: \textbf{falsch}, da, falls y größer als x ist, y von x ohne Rest geteilt wird, allerdings x von y immer mit Rest geteilt wird, da das Ergebnis der Division 0 ist.
+			\item \textbf{asymmetrisch}: \textbf{falsch}, da x sich selbst ohne Rest teilt
+			\item \textbf{antisymmetrisch}: \textbf{wahr}, da die Relation nicht symmetrisch ist und x nur sich selbst ohne Rest teilt, wenn diese gleich ist
+			\item \textbf{transitiv}: \textbf{wahr}, da, falls x y ohne Rest teilt und y z ohne Rest teilt, x z ohne Rest teilt. Z.B.: $3 | 9 \land 9 | 81 \Rightarrow 3 | 81$
+		\end{itemize}
+		
+		\item
+		Universum: $\mathbb{Z}$
+		\begin{enumerate}
+			\item
+			\begin{equation*}
+				R_{0} := \{(1, 1), (1, 2), (2, 2), (2, 3), (3, 4)\}
+			\end{equation*}
+			
+			\item
+			\begin{equation*}
+				R_{1} := \{(-2, 3), (-3, 4), (-1, 2), (2, -1), (3, -2)\}
+			\end{equation*}
+		\end{enumerate}
+		
+		\item
+		\begin{equation*}
+			R := \{(1, 1), (1, 3), (2, 1), (2, 2), (3, 3), (3, 4), (4, 3), (4, 4)\}
+		\end{equation*}	
+		
+		\begin{figure}[ht!]
+			\begin{center}
+				\includegraphics[height=45mm]{6.eps}
+				\caption{gerichteter Graph für Aufgabe 6.}
+			\end{center}
+		\end{figure}
+		
+	\end{enumerate}
+\end{document}
