@@ -29,6 +29,10 @@
 			\begin{equation*}
 				\bigcap(M) := \{ a | \exists m \text{ } m \in M \land a \in m \land \forall l \text{ } l \in M \land m \neq l  \Rightarrow a \in l \}
 			\end{equation*}
+			\textbf{Alternative: }
+			\begin{equation*}
+				\bigcup(M) := \{ a | \forall m \text{ } m \in M \Rightarrow a \in m \}
+			\end{equation*}
 		\end{enumerate}
 		
 		\item
@@ -45,12 +49,12 @@
 			\begin{enumerate}
 				\item
 				\begin{equation*}
-					M := \{ (5, 5) \}
+					M := \{ 5 \}
 				\end{equation*}
 				
 				\item
 				\begin{equation*}
-					M := \{ (3, 1), (3, 2) \}
+					M := \{ 1, 2 \}
 				\end{equation*}
 			\end{enumerate}
 			
@@ -61,32 +65,84 @@
 				\item \textbf{symmetrisch}: \textbf{falsch}, da nur zwischen den Knoten 1 und 3 Doppelpfeile vorhanden sind
 				\item \textbf{asymmetrisch}: \textbf{falsch}, da zwischen Knoten 1 und 3 Doppelpfeile vorhanden sind und die Knoten 2 und 5 über Selbstpfeile verfügen
 				\item \textbf{antisymmetrisch}: \textbf{falsch}, da zwischen Knoten 1 und 3 Doppelpfeile vorhanden sind
-				\item \textbf{transitiv}: \textbf{wahr}
+				\item \textbf{transitiv}: \textbf{falsch}, da es keine Abkürzung zwischen 1 $\rightarrow$ 3 $\rightarrow$ 2 gibt.
 			\end{itemize}
 		\end{enumerate}
 		
 		\item
 		Zur Ermittlung der Ergebnisse muss in die Definition eingesetzt werden.
 		\newline
-		\begin{tabular}{|c|c|c|c|c|c|c|}
+		\begin{tabular}{|l|c|c|c|c|c|c|c|}
 			\firsthline
-				Relation & reflexiv & irreflexiv & symmetrisch & asymmetrisch & antisymmetrisch & transitiv \\
+				& Relation & reflexiv & irreflexiv & symmetrisch & asymmetrisch & antisymmetrisch & transitiv \\
 			\hline
-				$\in$ & falsch & wahr & falsch & wahr & wahr & falsch \\
+				a) & $\in$ & falsch & wahr & falsch & wahr & wahr & falsch \\
 			\hline
-				$\subseteq$ & wahr & falsch & falsch & falsch & wahr & falsch \\
+				b) & $\subseteq$ & wahr & falsch & falsch & falsch & wahr & falsch \\
 			\hline
 		\end{tabular}
+		\newline
+		\begin{enumerate}
+			\item
+			\textbf{transitiv}:
+			\begin{equation*}
+				\lnot (3 \in 3)
+			\end{equation*}
+			\textbf{symmetrisch}:
+			\begin{equation*}
+				3 \in \{3\}
+			\end{equation*}
+			\begin{equation*}
+				\lnot (\{3\} \in 3)
+			\end{equation*}
+			\clearpage
+			\textbf{transitiv}:
+			\begin{equation*}
+				3 \in \{3\}
+			\end{equation*}
+			\begin{equation*}
+				\{3\} \in \{\{3\}\}
+			\end{equation*}
+			\begin{equation*}
+				\lnot (3 \in \{\{3\}\})
+			\end{equation*}
+			\textbf{antisymmetrisch}:
+			\begin{equation*}
+				\forall x, y \text{ } x, y \in M \land \underbrace{((x, y) \in R \land (y, x) \in R)}_{\text{falsch, deher ist die Implikation wahr}} \Rightarrow x = y
+			\end{equation*}
+			
+			\item
+			\textbf{reflexiv}:
+			\begin{equation*}
+				\{2\} \subseteq \{2\}
+			\end{equation*}
+			\textbf{symmetrisch}:
+			\begin{equation*}
+				\{18\} \subseteq \{17, 18\}
+			\end{equation*}
+			\begin{equation*}
+				\lnot (\{17, 18\} \subseteq \{18\})
+			\end{equation*}
+			\textbf{transitiv}:
+			\begin{equation*}
+				\{18\} \subseteq \{17, 18\}
+			\end{equation*}
+			\begin{equation*}
+				\{17, 18\} \subseteq \{17, 18, 19\}
+			\end{equation*}
+			\begin{equation*}
+				\{18\} \subseteq \{17, 18, 19\}
+			\end{equation*}
+		\end{enumerate}
 		
-		\clearpage
 		\item
-		Universum: $\mathbb{N}$
+		Universum: $\mathbb{Z}$
 		\begin{itemize}
-			\item \textbf{relfexiv}: \textbf{wahr}, da jede Zahl sich selbst ohne Rest teilt
-			\item \textbf{irreflexiv}: \textbf{falsch}, da jede Zahl sich selbst ohne Rest teilt
+			\item \textbf{relfexiv}: \textbf{falsch}, da 0 sich selbst nicht teilt
+			\item \textbf{irreflexiv}: \textbf{falsch}, da jede Zahl außer 0 sich selbst ohne Rest teilt
 			\item \textbf{symmetrisch}: \textbf{falsch}, da, falls y größer als x ist, y von x ohne Rest geteilt wird, allerdings x von y immer mit Rest geteilt wird, da das Ergebnis der Division 0 ist.
 			\item \textbf{asymmetrisch}: \textbf{falsch}, da x sich selbst ohne Rest teilt
-			\item \textbf{antisymmetrisch}: \textbf{wahr}, da die Relation nicht symmetrisch ist und x nur sich selbst ohne Rest teilt, wenn diese gleich ist
+			\item \textbf{antisymmetrisch}: \textbf{falsch}, da z.B. $-3$ 3 ohne Rest teilt, die Zahlen aber nicht gleich sind: $-3 | 3 \text{ ... } -3 \neq 3$
 			\item \textbf{transitiv}: \textbf{wahr}, da, falls x y ohne Rest teilt und y z ohne Rest teilt, x z ohne Rest teilt. Z.B.: $3 | 9 \land 9 | 81 \Rightarrow 3 | 81$
 		\end{itemize}
 		
